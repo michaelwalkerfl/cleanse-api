@@ -1,6 +1,6 @@
 get:
   description: Queue cleanse task on list
-  summary: CleanseListCheckEmail
+  summary: Cleanse Single Email
   tags:
   - Clean Single Email
   operationId: ListCheckEmailTestTestComGet

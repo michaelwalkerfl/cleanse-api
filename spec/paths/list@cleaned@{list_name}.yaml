@@ -1,6 +1,6 @@
 delete:
   description: Delete List
-  summary: DeleteCleanedList
+  summary: Delete Cleaned List
   tags:
   - Delete Cleaned Email List
   operationId: ListCleanedTestListCleanse3ZipDelete
@@ -33,8 +33,8 @@ delete:
   security:
   - Bearer: []
 get:
-  description: Delete List
-  summary: GetCleanedList
+  description: Download Cleaned List
+  summary: Download Cleaned List
   tags:
   - Download Cleaned List
   operationId: ListCleanedTestListCleanse3ZipGet

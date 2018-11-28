@@ -1,6 +1,6 @@
 get:
   description: Queue cleanse task on list
-  summary: CleanseList
+  summary: Cleanse Email List
   tags:
   - Clean Email List
   operationId: ListCleanse11Get

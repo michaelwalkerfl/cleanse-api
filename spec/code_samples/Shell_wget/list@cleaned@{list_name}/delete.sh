@@ -1,6 +1,5 @@
 wget --quiet \
   --method DELETE \
   --header 'content-type: application/json' \
-  --header 'authorization: Bearer REPLACE_BEARER_TOKEN' \
   --output-document \
-  - 'http://example.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE'
+  - 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE'

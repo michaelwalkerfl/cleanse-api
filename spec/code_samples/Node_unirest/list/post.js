@@ -1,13 +1,12 @@
 var unirest = require("unirest");
 
-var req = unirest("POST", "http://example.com/api/v1/list");
+var req = unirest("POST", "https://cleanse.studio/api/v1/list");
 
 req.query({
   "username": "SOME_STRING_VALUE"
 });
 
 req.headers({
-  "authorization": "Bearer REPLACE_BEARER_TOKEN",
   "content-type": "application/json"
 });
 

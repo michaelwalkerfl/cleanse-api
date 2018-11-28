@@ -2,7 +2,7 @@ delete:
   description: Delete List
   summary: DeleteList
   tags:
-  - delete_email_list
+  - Delete Email List
   operationId: List7Delete
   produces:
   - application/json
@@ -31,4 +31,4 @@ delete:
         application/json:
           message: List succesfully deleted
   security:
-  - auth: []
+  - Bearer: []

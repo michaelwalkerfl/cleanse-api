@@ -1,7 +1,7 @@
 <?php
 
 $request = new HttpRequest();
-$request->setUrl('http://example.com/api/v1/list');
+$request->setUrl('https://cleanse.studio/api/v1/list');
 $request->setMethod(HTTP_METH_POST);
 
 $request->setQueryData(array(
@@ -9,7 +9,6 @@ $request->setQueryData(array(
 ));
 
 $request->setHeaders(array(
-  'authorization' => 'Bearer REPLACE_BEARER_TOKEN',
   'content-type' => 'application/json'
 ));
 

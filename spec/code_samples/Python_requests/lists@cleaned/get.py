@@ -1,13 +1,10 @@
 import requests
 
-url = "http://example.com/api/v1/lists/cleaned"
+url = "https://cleanse.studio/api/v1/lists/cleaned"
 
 querystring = {"username":"SOME_STRING_VALUE"}
 
-headers = {
-    'content-type': "application/json",
-    'authorization': "Bearer REPLACE_BEARER_TOKEN"
-    }
+headers = {'content-type': 'application/json'}
 
 response = requests.request("GET", url, headers=headers, params=querystring)
 

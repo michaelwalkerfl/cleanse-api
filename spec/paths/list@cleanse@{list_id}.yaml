@@ -2,7 +2,7 @@ get:
   description: Queue cleanse task on list
   summary: CleanseList
   tags:
-  - clean_email_list
+  - Clean Email List
   operationId: ListCleanse11Get
   produces:
   - application/json
@@ -31,4 +31,4 @@ get:
         application/json:
           message: List "test-list-cleanse3.txt" has been sent for cleanse successfully.
   security:
-  - auth: []
+  - Bearer: []

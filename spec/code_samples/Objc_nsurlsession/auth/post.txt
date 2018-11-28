@@ -1,13 +1,12 @@
 #import <Foundation/Foundation.h>
 
-NSDictionary *headers = @{ @"content-type": @"application/json",
-                           @"authorization": @"Bearer REPLACE_BEARER_TOKEN" };
+NSDictionary *headers = @{ @"content-type": @"application/json" };
 NSDictionary *parameters = @{ @"email": @"<ADD STRING VALUE>",
                               @"password": @"<ADD STRING VALUE>" };
 
 NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
 
-NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://example.com/api/v1/auth"]
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/auth"]
                                                        cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                    timeoutInterval:10.0];
 [request setHTTPMethod:@"POST"];

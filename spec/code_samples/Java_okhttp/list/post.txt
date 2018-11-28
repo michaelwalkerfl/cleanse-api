@@ -3,10 +3,9 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}");
 Request request = new Request.Builder()
-  .url("http://example.com/api/v1/list?username=SOME_STRING_VALUE")
+  .url("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")
   .post(body)
   .addHeader("content-type", "application/json")
-  .addHeader("authorization", "Bearer REPLACE_BEARER_TOKEN")
   .build();
 
 Response response = client.newCall(request).execute();

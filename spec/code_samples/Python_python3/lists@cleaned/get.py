@@ -1,11 +1,8 @@
 import http.client
 
-conn = http.client.HTTPConnection("example.com")
+conn = http.client.HTTPSConnection("cleanse.studio")
 
-headers = {
-    'content-type': "application/json",
-    'authorization': "Bearer REPLACE_BEARER_TOKEN"
-    }
+headers = { 'content-type': "application/json" }
 
 conn.request("GET", "/api/v1/lists/cleaned?username=SOME_STRING_VALUE", headers=headers)
 

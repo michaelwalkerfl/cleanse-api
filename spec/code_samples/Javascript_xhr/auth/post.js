@@ -12,8 +12,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("POST", "http://example.com/api/v1/auth");
+xhr.open("POST", "https://cleanse.studio/api/v1/auth");
 xhr.setRequestHeader("content-type", "application/json");
-xhr.setRequestHeader("authorization", "Bearer REPLACE_BEARER_TOKEN");
 
 xhr.send(data);

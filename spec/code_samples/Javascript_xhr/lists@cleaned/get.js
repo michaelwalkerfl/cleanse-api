@@ -9,8 +9,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "http://example.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
+xhr.open("GET", "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
 xhr.setRequestHeader("content-type", "application/json");
-xhr.setRequestHeader("authorization", "Bearer REPLACE_BEARER_TOKEN");
 
 xhr.send(data);

@@ -1,11 +1,8 @@
 import Foundation
 
-let headers = [
-  "content-type": "application/json",
-  "authorization": "Bearer REPLACE_BEARER_TOKEN"
-]
+let headers = ["content-type": "application/json"]
 
-var request = NSMutableURLRequest(URL: NSURL(string: "http://example.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")!,
+var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")!,
                                         cachePolicy: .UseProtocolCachePolicy,
                                     timeoutInterval: 10.0)
 request.HTTPMethod = "GET"

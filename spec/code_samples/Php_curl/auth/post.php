@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://example.com/api/v1/auth",
+  CURLOPT_URL => "https://cleanse.studio/api/v1/auth",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -12,7 +12,6 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}",
   CURLOPT_HTTPHEADER => array(
-    "authorization: Bearer REPLACE_BEARER_TOKEN",
     "content-type: application/json"
   ),
 ));

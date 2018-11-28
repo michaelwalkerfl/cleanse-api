@@ -1,13 +1,12 @@
-var http = require("http");
+var http = require("https");
 
 var options = {
   "method": "GET",
-  "hostname": "example.com",
+  "hostname": "cleanse.studio",
   "port": null,
   "path": "/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
   "headers": {
-    "content-type": "application/json",
-    "authorization": "Bearer REPLACE_BEARER_TOKEN"
+    "content-type": "application/json"
   }
 };
 

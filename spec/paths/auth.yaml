@@ -2,7 +2,7 @@ post:
   description: Authentication user and get generated user tokens.
   summary: Authenticate User
   tags:
-  - authentication
+  - Auth Token
   operationId: AuthPost
   produces:
   - application/json
@@ -30,4 +30,4 @@ post:
             token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NmI3YzQ4MS1lMWFhLTQ2NTctYjllOC02MjA2Y2Q4NTc1MjciLCJleHAiOjE1NDE5NjkyNDksImZyZXNoIjpmYWxzZSwiaWF0IjoxNTQxOTY4MzQ5LCJ0eXBlIjoiYWNjZXNzIiwibmJmIjoxNTQxOTY4MzQ5LCJpZGVudGl0eSI6eyJwYXNzd29yZCI6ImNoYW5nZXRoaXNwYXNzd29yZF8iLCJlbWFpbCI6ImltQGNsZWFuc2Uuc3R1ZGlvIn19.4ifU0m3_ZXD_LHXlAKPXcIIP0Nmw3vUtTEpJLRuJW_Y
           ok: true
   security:
-  - auth: []
+  - Bearer: []

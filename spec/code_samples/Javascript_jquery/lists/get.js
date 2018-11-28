@@ -1,11 +1,10 @@
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "http://example.com/api/v1/lists?username=SOME_STRING_VALUE",
+  "url": "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE",
   "method": "GET",
   "headers": {
-    "content-type": "application/json",
-    "authorization": "Bearer REPLACE_BEARER_TOKEN"
+    "content-type": "application/json"
   }
 }
 

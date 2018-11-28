@@ -1,13 +1,14 @@
 require 'uri'
 require 'net/http'
 
-url = URI("http://example.com/api/v1/list?username=SOME_STRING_VALUE")
+url = URI("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")
 
 http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Post.new(url)
 request["content-type"] = 'application/json'
-request["authorization"] = 'Bearer REPLACE_BEARER_TOKEN'
 request.body = "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}"
 
 response = http.request(request)

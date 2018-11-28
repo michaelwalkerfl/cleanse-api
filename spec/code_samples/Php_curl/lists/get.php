@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://example.com/api/v1/lists?username=SOME_STRING_VALUE",
+  CURLOPT_URL => "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -11,7 +11,6 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
-    "authorization: Bearer REPLACE_BEARER_TOKEN",
     "content-type: application/json"
   ),
 ));

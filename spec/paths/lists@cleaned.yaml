@@ -2,7 +2,7 @@ get:
   description: 'TODO: Add Description'
   summary: Get cleaned user lists
   tags:
-  - get_cleaned_email_lists
+  - Get Cleaned Email Lists
   operationId: ListsCleanedGet
   produces:
   - application/json
@@ -23,4 +23,4 @@ get:
             files:
             - test-list-cleanse3.zip
   security:
-  - auth: []
+  - Bearer: []

@@ -1,10 +1,8 @@
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'http://example.com/api/v1/auth',
-  headers:
-   { authorization: 'Bearer REPLACE_BEARER_TOKEN',
-     'content-type': 'application/json' },
+  url: 'https://cleanse.studio/api/v1/auth',
+  headers: { 'content-type': 'application/json' },
   body:
    { email: '<ADD STRING VALUE>', password: '<ADD STRING VALUE>' },
   json: true };

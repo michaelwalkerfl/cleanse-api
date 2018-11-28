@@ -1,9 +1,6 @@
 import Foundation
 
-let headers = [
-  "content-type": "application/json",
-  "authorization": "Bearer REPLACE_BEARER_TOKEN"
-]
+let headers = ["content-type": "application/json"]
 let parameters = [
   "email": "<ADD STRING VALUE>",
   "password": "<ADD STRING VALUE>"
@@ -11,7 +8,7 @@ let parameters = [
 
 let postData = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: nil)
 
-var request = NSMutableURLRequest(URL: NSURL(string: "http://example.com/api/v1/auth")!,
+var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/auth")!,
                                         cachePolicy: .UseProtocolCachePolicy,
                                     timeoutInterval: 10.0)
 request.HTTPMethod = "POST"

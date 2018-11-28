@@ -2,7 +2,7 @@ delete:
   description: Delete List
   summary: DeleteCleanedList
   tags:
-  - delete_cleaned_email_list
+  - Delete Cleaned Email List
   operationId: ListCleanedTestListCleanse3ZipDelete
   produces:
   - application/json
@@ -31,12 +31,12 @@ delete:
         application/json:
           message: Cleaned list succesfully deleted.
   security:
-  - auth: []
+  - Bearer: []
 get:
   description: Delete List
   summary: GetCleanedList
   tags:
-  - Get/Downloadcleanedlist
+  - Download Cleaned List
   operationId: ListCleanedTestListCleanse3ZipGet
   produces:
   - application/json
@@ -60,4 +60,4 @@ get:
     200:
       description: ''
   security:
-  - auth: []
+  - Bearer: []

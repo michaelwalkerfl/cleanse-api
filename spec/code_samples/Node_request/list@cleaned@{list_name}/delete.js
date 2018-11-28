@@ -1,11 +1,9 @@
 var request = require("request");
 
 var options = { method: 'DELETE',
-  url: 'http://example.com/api/v1/list/cleaned/%7Blist_name%7D',
+  url: 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D',
   qs: { username: 'SOME_STRING_VALUE' },
-  headers:
-   { authorization: 'Bearer REPLACE_BEARER_TOKEN',
-     'content-type': 'application/json' } };
+  headers: { 'content-type': 'application/json' } };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);

@@ -1,13 +1,10 @@
 import http.client
 
-conn = http.client.HTTPConnection("example.com")
+conn = http.client.HTTPSConnection("cleanse.studio")
 
 payload = "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}"
 
-headers = {
-    'content-type': "application/json",
-    'authorization': "Bearer REPLACE_BEARER_TOKEN"
-    }
+headers = { 'content-type': "application/json" }
 
 conn.request("POST", "/api/v1/list?username=SOME_STRING_VALUE", payload, headers)
 

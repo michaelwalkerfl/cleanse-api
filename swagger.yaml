@@ -1,0 +1,3504 @@
+basePath: /api/v1
+consumes:
+  - application/json
+definitions:
+  AuthenticateUser:
+    example:
+      data:
+        refresh: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkYjNkYWQ1My04MmM4LTQwYmYtYmY1Zi03NDdhYTYwZmNmYWQiLCJleHAiOjE1NDQ1NjAzNDksImlhdCI6MTU0MTk2ODM0OSwidHlwZSI6InJlZnJlc2giLCJuYmYiOjE1NDE5NjgzNDksImlkZW50aXR5Ijp7InBhc3N3b3JkIjoiY2hhbmdldGhpc3Bhc3N3b3JkXyIsImVtYWlsIjoiaW1AY2xlYW5zZS5zdHVkaW8ifX0.9LCxxTgQjBUI772xnVlJAZDMnk0s7HYto0HDM6SBdYI
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NmI3YzQ4MS1lMWFhLTQ2NTctYjllOC02MjA2Y2Q4NTc1MjciLCJleHAiOjE1NDE5NjkyNDksImZyZXNoIjpmYWxzZSwiaWF0IjoxNTQxOTY4MzQ5LCJ0eXBlIjoiYWNjZXNzIiwibmJmIjoxNTQxOTY4MzQ5LCJpZGVudGl0eSI6eyJwYXNzd29yZCI6ImNoYW5nZXRoaXNwYXNzd29yZF8iLCJlbWFpbCI6ImltQGNsZWFuc2Uuc3R1ZGlvIn19.4ifU0m3_ZXD_LHXlAKPXcIIP0Nmw3vUtTEpJLRuJW_Y
+      ok: true
+    properties:
+      data:
+        $ref: '#/definitions/Data'
+      ok:
+        type: boolean
+    required:
+      - data
+      - ok
+    type: object
+  AuthenticateUserRequest:
+    properties:
+      email:
+        description: Account Email address
+        example: im@cleanse.studio
+        type: string
+      password:
+        description: Account Password
+        example: changethispassword_
+        type: string
+    required:
+      - email
+      - password
+    type: object
+  CleanseList:
+    example:
+      message: List "test-list-cleanse3.txt" has been sent for cleanse successfully.
+    properties:
+      message:
+        type: string
+    required:
+      - message
+    type: object
+  CleanseListCheckEmail:
+    example:
+      message: Email cleanse successful.
+      success: true
+    properties:
+      message:
+        type: string
+      success:
+        type: boolean
+    required:
+      - message
+      - success
+    type: object
+  Data:
+    properties:
+      refresh:
+        type: string
+      token:
+        type: string
+    required:
+      - refresh
+      - token
+    type: object
+  Data2:
+    properties:
+      files:
+        items:
+          type: string
+        type: array
+    required:
+      - files
+    type: object
+  DeleteCleanedList:
+    example:
+      message: Cleaned list succesfully deleted.
+    properties:
+      message:
+        type: string
+    required:
+      - message
+    type: object
+  DeleteList:
+    example:
+      message: List succesfully deleted
+    properties:
+      message:
+        type: string
+    required:
+      - message
+    type: object
+  Getcleaneduserlists:
+    example:
+      data:
+        files:
+          - test-list-cleanse3.zip
+    properties:
+      data:
+        $ref: '#/definitions/Data2'
+    required:
+      - data
+    type: object
+  ImportListRequest:
+    example:
+      emails:
+        - test1@test.com
+        - test2@test.com
+        - test3@test.com
+        - test4@test.com
+        - test5@test.com
+        - test6@test.com
+        - test7@test.com
+        - test8@test.com
+        - test9@test.com
+      filename: testlist
+    properties:
+      emails:
+        items:
+          type: string
+        type: array
+      filename:
+        type: string
+    required:
+      - filename
+      - emails
+    type: object
+  List:
+    properties:
+      count:
+        example: 500000
+        format: int32
+        type: integer
+      id:
+        example: 1
+        format: int32
+        type: integer
+      last_cleanse:
+        example: 'Sun, 19 Aug 2018 18:19:02 -0000'
+        type: string
+      name:
+        example: test_list-001.txt
+        type: string
+      subscribers_dangerous:
+        example: 0
+        format: int32
+        type: integer
+      subscribers_good:
+        example: 0
+        format: int32
+        type: integer
+      subscribers_invalid:
+        example: 0
+        format: int32
+        type: integer
+      subscribers_valid:
+        example: 0
+        format: int32
+        type: integer
+    required:
+      - count
+      - id
+      - last_cleanse
+      - name
+      - subscribers_dangerous
+      - subscribers_good
+      - subscribers_invalid
+      - subscribers_valid
+    type: object
+  Lists:
+    example: |-
+      {
+        "data": {
+            "lists": [
+                [
+                    {
+                        "count": 1050,
+                        "id": 1,
+                        "last_cleanse": "Thu, 15 Nov 2018 00:10:56 -0000",
+                        "name": "test-list.txt",
+                        "subscribers_dangerous": 0,
+                        "subscribers_good": 0,
+                        "subscribers_invalid": 0,
+                        "subscribers_valid": 0
+                    }
+                ]
+            ]
+        }
+      }
+    properties:
+      data:
+        type: string
+    required:
+      - data
+    type: object
+host: cleanse.studio
+info:
+  contact: {}
+  description: |
+    ![logo](https://cleanse.studio/static/images/dark-logo.png "Cleanse.studio")
+
+    **This collection is intended to help utilize the cleanse.studio API**
+
+    If you are not already signed up, please visit for your free developer account [https://cleanse.studio/](https://cleanse.studio/)
+
+
+    ---
+  title: Cleanse API
+  version: '1.0'
+parameters:
+  username:
+    in: query
+    name: username
+    required: true
+    type: string
+paths:
+  /auth:
+    post:
+      description: Authentication user and get generated user tokens.
+      operationId: AuthPost
+      parameters:
+        - description: ''
+          in: header
+          name: Content-Type
+          required: true
+          type: string
+        - description: ''
+          in: body
+          name: Body
+          required: true
+          schema:
+            $ref: '#/definitions/AuthenticateUserRequest'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+          examples:
+            application/json:
+              data:
+                refresh: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkYjNkYWQ1My04MmM4LTQwYmYtYmY1Zi03NDdhYTYwZmNmYWQiLCJleHAiOjE1NDQ1NjAzNDksImlhdCI6MTU0MTk2ODM0OSwidHlwZSI6InJlZnJlc2giLCJuYmYiOjE1NDE5NjgzNDksImlkZW50aXR5Ijp7InBhc3N3b3JkIjoiY2hhbmdldGhpc3Bhc3N3b3JkXyIsImVtYWlsIjoiaW1AY2xlYW5zZS5zdHVkaW8ifX0.9LCxxTgQjBUI772xnVlJAZDMnk0s7HYto0HDM6SBdYI
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NmI3YzQ4MS1lMWFhLTQ2NTctYjllOC02MjA2Y2Q4NTc1MjciLCJleHAiOjE1NDE5NjkyNDksImZyZXNoIjpmYWxzZSwiaWF0IjoxNTQxOTY4MzQ5LCJ0eXBlIjoiYWNjZXNzIiwibmJmIjoxNTQxOTY4MzQ5LCJpZGVudGl0eSI6eyJwYXNzd29yZCI6ImNoYW5nZXRoaXNwYXNzd29yZF8iLCJlbWFpbCI6ImltQGNsZWFuc2Uuc3R1ZGlvIn19.4ifU0m3_ZXD_LHXlAKPXcIIP0Nmw3vUtTEpJLRuJW_Y
+              ok: true
+          schema:
+            $ref: '#/definitions/AuthenticateUser'
+      security:
+        - Bearer: []
+      summary: Authenticate User
+      tags:
+        - Auth Token
+      x-code-samples:
+        - lang: C_libcurl
+          source: |-
+            CURL *hnd = curl_easy_init();
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/auth");
+
+            struct curl_slist *headers = NULL;
+            headers = curl_slist_append(headers, "content-type: application/json");
+            curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+            curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}");
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp_restsharp
+          source: |-
+            var client = new RestClient("https://cleanse.studio/api/v1/auth");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddParameter("application/json", "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+        - lang: Go_native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/auth\"\n\n\tpayload := strings.NewReader(\"{\\\"email\\\":\\\"<ADD STRING VALUE>\\\",\\\"password\\\":\\\"<ADD STRING VALUE>\\\"}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java_okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}");
+            Request request = new Request.Builder()
+              .url("https://cleanse.studio/api/v1/auth")
+              .post(body)
+              .addHeader("content-type", "application/json")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java_unirest
+          source: |-
+            HttpResponse<String> response = Unirest.post("https://cleanse.studio/api/v1/auth")
+              .header("content-type", "application/json")
+              .body("{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}")
+              .asString();
+        - lang: Javascript_jquery
+          source: |-
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://cleanse.studio/api/v1/auth",
+              "method": "POST",
+              "headers": {
+                "content-type": "application/json"
+              },
+              "processData": false,
+              "data": "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}"
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript_xhr
+          source: |-
+            var data = JSON.stringify({
+              "email": "<ADD STRING VALUE>",
+              "password": "<ADD STRING VALUE>"
+            });
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+            xhr.open("POST", "https://cleanse.studio/api/v1/auth");
+            xhr.setRequestHeader("content-type", "application/json");
+
+            xhr.send(data);
+        - lang: Node_native
+          source: |-
+            var http = require("https");
+
+            var options = {
+              "method": "POST",
+              "hostname": "cleanse.studio",
+              "port": null,
+              "path": "/api/v1/auth",
+              "headers": {
+                "content-type": "application/json"
+              }
+            };
+
+            var req = http.request(options, function (res) {
+              var chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                var body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.write(JSON.stringify({ email: '<ADD STRING VALUE>', password: '<ADD STRING VALUE>' }));
+            req.end();
+        - lang: Node_request
+          source: |
+            var request = require("request");
+
+            var options = { method: 'POST',
+              url: 'https://cleanse.studio/api/v1/auth',
+              headers: { 'content-type': 'application/json' },
+              body:
+               { email: '<ADD STRING VALUE>', password: '<ADD STRING VALUE>' },
+              json: true };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node_unirest
+          source: |
+            var unirest = require("unirest");
+
+            var req = unirest("POST", "https://cleanse.studio/api/v1/auth");
+
+            req.headers({
+              "content-type": "application/json"
+            });
+
+            req.type("json");
+            req.send({
+              "email": "<ADD STRING VALUE>",
+              "password": "<ADD STRING VALUE>"
+            });
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc_nsurlsession
+          source: |-
+            #import <Foundation/Foundation.h>
+
+            NSDictionary *headers = @{ @"content-type": @"application/json" };
+            NSDictionary *parameters = @{ @"email": @"<ADD STRING VALUE>",
+                                          @"password": @"<ADD STRING VALUE>" };
+
+            NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/auth"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"POST"];
+            [request setAllHTTPHeaderFields:headers];
+            [request setHTTPBody:postData];
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml_cohttp
+          source: |-
+            open Cohttp_lwt_unix
+            open Cohttp
+            open Lwt
+
+            let uri = Uri.of_string "https://cleanse.studio/api/v1/auth" in
+            let headers = Header.add (Header.init ()) "content-type" "application/json" in
+            let body = Cohttp_lwt_body.of_string "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}" in
+
+            Client.call ~headers ~body `POST uri
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php_curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://cleanse.studio/api/v1/auth",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "POST",
+              CURLOPT_POSTFIELDS => "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/json"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php_http1
+          source: |-
+            <?php
+
+            $request = new HttpRequest();
+            $request->setUrl('https://cleanse.studio/api/v1/auth');
+            $request->setMethod(HTTP_METH_POST);
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $request->setBody('{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}');
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php_http2
+          source: |-
+            <?php
+
+            $client = new http\Client;
+            $request = new http\Client\Request;
+
+            $body = new http\Message\Body;
+            $body->append('{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}');
+
+            $request->setRequestUrl('https://cleanse.studio/api/v1/auth');
+            $request->setRequestMethod('POST');
+            $request->setBody($body);
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $client->enqueue($request)->send();
+            $response = $client->getResponse();
+
+            echo $response->getBody();
+        - lang: Python_python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPSConnection("cleanse.studio")
+
+            payload = "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}"
+
+            headers = { 'content-type': "application/json" }
+
+            conn.request("POST", "/api/v1/auth", payload, headers)
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python_requests
+          source: |-
+            import requests
+
+            url = "https://cleanse.studio/api/v1/auth"
+
+            payload = "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}"
+            headers = {'content-type': 'application/json'}
+
+            response = requests.request("POST", url, data=payload, headers=headers)
+
+            print(response.text)
+        - lang: Ruby_native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("https://cleanse.studio/api/v1/auth")
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+            request = Net::HTTP::Post.new(url)
+            request["content-type"] = 'application/json'
+            request.body = "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}"
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell_curl
+          source: |-
+            curl --request POST \
+              --url https://cleanse.studio/api/v1/auth \
+              --header 'content-type: application/json' \
+              --data '{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}'
+        - lang: Shell_httpie
+          source: |-
+            echo '{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}' |  \
+              http POST https://cleanse.studio/api/v1/auth \
+              content-type:application/json
+        - lang: Shell_wget
+          source: |-
+            wget --quiet \
+              --method POST \
+              --header 'content-type: application/json' \
+              --body-data '{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}' \
+              --output-document \
+              - https://cleanse.studio/api/v1/auth
+        - lang: Swift_nsurlsession
+          source: |-
+            import Foundation
+
+            let headers = ["content-type": "application/json"]
+            let parameters = [
+              "email": "<ADD STRING VALUE>",
+              "password": "<ADD STRING VALUE>"
+            ]
+
+            let postData = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: nil)
+
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/auth")!,
+                                                    cachePolicy: .UseProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.HTTPMethod = "POST"
+            request.allHTTPHeaderFields = headers
+            request.HTTPBody = postData
+
+            let session = NSURLSession.sharedSession()
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                println(error)
+              } else {
+                let httpResponse = response as? NSHTTPURLResponse
+                println(httpResponse)
+              }
+            })
+
+            dataTask.resume()
+  /list:
+    post:
+      description: Import List of emails
+      operationId: ListPost
+      parameters:
+        - description: ''
+          in: query
+          name: username
+          required: true
+          type: string
+        - description: ''
+          in: header
+          name: Content-Type
+          required: true
+          type: string
+        - description: ''
+          in: body
+          name: Body
+          required: true
+          schema:
+            $ref: '#/definitions/ImportListRequest'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+          examples:
+            application/json:
+              message: List successfully added.
+              success: true
+          schema:
+            $ref: '#/definitions/List'
+      security:
+        - Bearer: []
+      summary: Import List
+      tags:
+        - Import Email List
+      x-code-samples:
+        - lang: C_libcurl
+          source: |-
+            CURL *hnd = curl_easy_init();
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE");
+
+            struct curl_slist *headers = NULL;
+            headers = curl_slist_append(headers, "content-type: application/json");
+            curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+            curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}");
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp_restsharp
+          source: |-
+            var client = new RestClient("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddParameter("application/json", "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+        - lang: Go_native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE\"\n\n\tpayload := strings.NewReader(\"{\\\"filename\\\":\\\"<ADD STRING VALUE>\\\",\\\"emails\\\":[\\\"<ADD STRING VALUE>\\\"]}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java_okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}");
+            Request request = new Request.Builder()
+              .url("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")
+              .post(body)
+              .addHeader("content-type", "application/json")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java_unirest
+          source: |-
+            HttpResponse<String> response = Unirest.post("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")
+              .header("content-type", "application/json")
+              .body("{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}")
+              .asString();
+        - lang: Javascript_jquery
+          source: |-
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE",
+              "method": "POST",
+              "headers": {
+                "content-type": "application/json"
+              },
+              "processData": false,
+              "data": "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}"
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript_xhr
+          source: |-
+            var data = JSON.stringify({
+              "filename": "<ADD STRING VALUE>",
+              "emails": [
+                "<ADD STRING VALUE>"
+              ]
+            });
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+            xhr.open("POST", "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE");
+            xhr.setRequestHeader("content-type", "application/json");
+
+            xhr.send(data);
+        - lang: Node_native
+          source: |-
+            var http = require("https");
+
+            var options = {
+              "method": "POST",
+              "hostname": "cleanse.studio",
+              "port": null,
+              "path": "/api/v1/list?username=SOME_STRING_VALUE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            };
+
+            var req = http.request(options, function (res) {
+              var chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                var body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.write(JSON.stringify({ filename: '<ADD STRING VALUE>',
+              emails: [ '<ADD STRING VALUE>' ] }));
+            req.end();
+        - lang: Node_request
+          source: |
+            var request = require("request");
+
+            var options = { method: 'POST',
+              url: 'https://cleanse.studio/api/v1/list',
+              qs: { username: 'SOME_STRING_VALUE' },
+              headers: { 'content-type': 'application/json' },
+              body:
+               { filename: '<ADD STRING VALUE>',
+                 emails: [ '<ADD STRING VALUE>' ] },
+              json: true };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node_unirest
+          source: |
+            var unirest = require("unirest");
+
+            var req = unirest("POST", "https://cleanse.studio/api/v1/list");
+
+            req.query({
+              "username": "SOME_STRING_VALUE"
+            });
+
+            req.headers({
+              "content-type": "application/json"
+            });
+
+            req.type("json");
+            req.send({
+              "filename": "<ADD STRING VALUE>",
+              "emails": [
+                "<ADD STRING VALUE>"
+              ]
+            });
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc_nsurlsession
+          source: |-
+            #import <Foundation/Foundation.h>
+
+            NSDictionary *headers = @{ @"content-type": @"application/json" };
+            NSDictionary *parameters = @{ @"filename": @"<ADD STRING VALUE>",
+                                          @"emails": @[ @"<ADD STRING VALUE>" ] };
+
+            NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"POST"];
+            [request setAllHTTPHeaderFields:headers];
+            [request setHTTPBody:postData];
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml_cohttp
+          source: |-
+            open Cohttp_lwt_unix
+            open Cohttp
+            open Lwt
+
+            let uri = Uri.of_string "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE" in
+            let headers = Header.add (Header.init ()) "content-type" "application/json" in
+            let body = Cohttp_lwt_body.of_string "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}" in
+
+            Client.call ~headers ~body `POST uri
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php_curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "POST",
+              CURLOPT_POSTFIELDS => "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/json"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php_http1
+          source: |-
+            <?php
+
+            $request = new HttpRequest();
+            $request->setUrl('https://cleanse.studio/api/v1/list');
+            $request->setMethod(HTTP_METH_POST);
+
+            $request->setQueryData(array(
+              'username' => 'SOME_STRING_VALUE'
+            ));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $request->setBody('{"filename":"<ADD STRING VALUE>","emails":["<ADD STRING VALUE>"]}');
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php_http2
+          source: |-
+            <?php
+
+            $client = new http\Client;
+            $request = new http\Client\Request;
+
+            $body = new http\Message\Body;
+            $body->append('{"filename":"<ADD STRING VALUE>","emails":["<ADD STRING VALUE>"]}');
+
+            $request->setRequestUrl('https://cleanse.studio/api/v1/list');
+            $request->setRequestMethod('POST');
+            $request->setBody($body);
+
+            $request->setQuery(new http\QueryString(array(
+              'username' => 'SOME_STRING_VALUE'
+            )));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $client->enqueue($request)->send();
+            $response = $client->getResponse();
+
+            echo $response->getBody();
+        - lang: Python_python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPSConnection("cleanse.studio")
+
+            payload = "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}"
+
+            headers = { 'content-type': "application/json" }
+
+            conn.request("POST", "/api/v1/list?username=SOME_STRING_VALUE", payload, headers)
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python_requests
+          source: |-
+            import requests
+
+            url = "https://cleanse.studio/api/v1/list"
+
+            querystring = {"username":"SOME_STRING_VALUE"}
+
+            payload = "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}"
+            headers = {'content-type': 'application/json'}
+
+            response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
+
+            print(response.text)
+        - lang: Ruby_native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+            request = Net::HTTP::Post.new(url)
+            request["content-type"] = 'application/json'
+            request.body = "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}"
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell_curl
+          source: |-
+            curl --request POST \
+              --url 'https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE' \
+              --header 'content-type: application/json' \
+              --data '{"filename":"<ADD STRING VALUE>","emails":["<ADD STRING VALUE>"]}'
+        - lang: Shell_httpie
+          source: |-
+            echo '{"filename":"<ADD STRING VALUE>","emails":["<ADD STRING VALUE>"]}' |  \
+              http POST 'https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE' \
+              content-type:application/json
+        - lang: Shell_wget
+          source: |-
+            wget --quiet \
+              --method POST \
+              --header 'content-type: application/json' \
+              --body-data '{"filename":"<ADD STRING VALUE>","emails":["<ADD STRING VALUE>"]}' \
+              --output-document \
+              - 'https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE'
+        - lang: Swift_nsurlsession
+          source: |-
+            import Foundation
+
+            let headers = ["content-type": "application/json"]
+            let parameters = [
+              "filename": "<ADD STRING VALUE>",
+              "emails": ["<ADD STRING VALUE>"]
+            ]
+
+            let postData = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: nil)
+
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")!,
+                                                    cachePolicy: .UseProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.HTTPMethod = "POST"
+            request.allHTTPHeaderFields = headers
+            request.HTTPBody = postData
+
+            let session = NSURLSession.sharedSession()
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                println(error)
+              } else {
+                let httpResponse = response as? NSHTTPURLResponse
+                println(httpResponse)
+              }
+            })
+
+            dataTask.resume()
+  '/list/check_email/{email}':
+    get:
+      description: Queue cleanse task on list
+      operationId: ListCheckEmailTestTestComGet
+      parameters:
+        - description: Email to check and validate
+          in: path
+          name: email
+          required: true
+          type: string
+        - description: ''
+          in: query
+          name: username
+          required: true
+          type: string
+        - description: ''
+          in: header
+          name: Content-Type
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+          examples:
+            application/json:
+              message: Email cleanse successful.
+              success: true
+          schema:
+            $ref: '#/definitions/CleanseListCheckEmail'
+      security:
+        - Bearer: []
+      summary: Cleanse Single Email
+      tags:
+        - Clean Single Email
+      x-code-samples:
+        - lang: C_libcurl
+          source: |-
+            CURL *hnd = curl_easy_init();
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
+
+            struct curl_slist *headers = NULL;
+            headers = curl_slist_append(headers, "content-type: application/json");
+            curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp_restsharp
+          source: |-
+            var client = new RestClient("https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("content-type", "application/json");
+            IRestResponse response = client.Execute(request);
+        - lang: Go_native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java_okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")
+              .get()
+              .addHeader("content-type", "application/json")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java_unirest
+          source: |-
+            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")
+              .header("content-type", "application/json")
+              .asString();
+        - lang: Javascript_jquery
+          source: |-
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript_xhr
+          source: |-
+            var data = null;
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+            xhr.open("GET", "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
+            xhr.setRequestHeader("content-type", "application/json");
+
+            xhr.send(data);
+        - lang: Node_native
+          source: |-
+            var http = require("https");
+
+            var options = {
+              "method": "GET",
+              "hostname": "cleanse.studio",
+              "port": null,
+              "path": "/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            };
+
+            var req = http.request(options, function (res) {
+              var chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                var body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.end();
+        - lang: Node_request
+          source: |
+            var request = require("request");
+
+            var options = { method: 'GET',
+              url: 'https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D',
+              qs: { username: 'SOME_STRING_VALUE' },
+              headers: { 'content-type': 'application/json' } };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node_unirest
+          source: |
+            var unirest = require("unirest");
+
+            var req = unirest("GET", "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D");
+
+            req.query({
+              "username": "SOME_STRING_VALUE"
+            });
+
+            req.headers({
+              "content-type": "application/json"
+            });
+
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc_nsurlsession
+          source: |-
+            #import <Foundation/Foundation.h>
+
+            NSDictionary *headers = @{ @"content-type": @"application/json" };
+
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"GET"];
+            [request setAllHTTPHeaderFields:headers];
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml_cohttp
+          source: |-
+            open Cohttp_lwt_unix
+            open Cohttp
+            open Lwt
+
+            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE" in
+            let headers = Header.add (Header.init ()) "content-type" "application/json" in
+
+            Client.call ~headers `GET uri
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php_curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/json"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php_http1
+          source: |-
+            <?php
+
+            $request = new HttpRequest();
+            $request->setUrl('https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D');
+            $request->setMethod(HTTP_METH_GET);
+
+            $request->setQueryData(array(
+              'username' => 'SOME_STRING_VALUE'
+            ));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php_http2
+          source: |-
+            <?php
+
+            $client = new http\Client;
+            $request = new http\Client\Request;
+
+            $request->setRequestUrl('https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D');
+            $request->setRequestMethod('GET');
+            $request->setQuery(new http\QueryString(array(
+              'username' => 'SOME_STRING_VALUE'
+            )));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $client->enqueue($request)->send();
+            $response = $client->getResponse();
+
+            echo $response->getBody();
+        - lang: Python_python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPSConnection("cleanse.studio")
+
+            headers = { 'content-type': "application/json" }
+
+            conn.request("GET", "/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE", headers=headers)
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python_requests
+          source: |-
+            import requests
+
+            url = "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D"
+
+            querystring = {"username":"SOME_STRING_VALUE"}
+
+            headers = {'content-type': 'application/json'}
+
+            response = requests.request("GET", url, headers=headers, params=querystring)
+
+            print(response.text)
+        - lang: Ruby_native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+            request = Net::HTTP::Get.new(url)
+            request["content-type"] = 'application/json'
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell_curl
+          source: |-
+            curl --request GET \
+              --url 'https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE' \
+              --header 'content-type: application/json'
+        - lang: Shell_httpie
+          source: |-
+            http GET 'https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE' \
+              content-type:application/json
+        - lang: Shell_wget
+          source: |-
+            wget --quiet \
+              --method GET \
+              --header 'content-type: application/json' \
+              --output-document \
+              - 'https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE'
+        - lang: Swift_nsurlsession
+          source: |-
+            import Foundation
+
+            let headers = ["content-type": "application/json"]
+
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")!,
+                                                    cachePolicy: .UseProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.HTTPMethod = "GET"
+            request.allHTTPHeaderFields = headers
+
+            let session = NSURLSession.sharedSession()
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                println(error)
+              } else {
+                let httpResponse = response as? NSHTTPURLResponse
+                println(httpResponse)
+              }
+            })
+
+            dataTask.resume()
+  '/list/cleaned/{list_name}':
+    delete:
+      description: Delete List
+      operationId: ListCleanedTestListCleanse3ZipDelete
+      parameters:
+        - description: List filename to delete
+          in: path
+          name: list_name
+          required: true
+          type: string
+        - description: ''
+          in: query
+          name: username
+          required: true
+          type: string
+        - description: ''
+          in: header
+          name: Content-Type
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+          examples:
+            application/json:
+              message: Cleaned list succesfully deleted.
+          schema:
+            $ref: '#/definitions/DeleteCleanedList'
+      security:
+        - Bearer: []
+      summary: Delete Cleaned List
+      tags:
+        - Delete Cleaned Email List
+      x-code-samples:
+        - lang: C_libcurl
+          source: |-
+            CURL *hnd = curl_easy_init();
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "DELETE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+
+            struct curl_slist *headers = NULL;
+            headers = curl_slist_append(headers, "content-type: application/json");
+            curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp_restsharp
+          source: |-
+            var client = new RestClient("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            var request = new RestRequest(Method.DELETE);
+            request.AddHeader("content-type", "application/json");
+            IRestResponse response = client.Execute(request);
+        - lang: Go_native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"DELETE\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java_okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+              .delete(null)
+              .addHeader("content-type", "application/json")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java_unirest
+          source: |-
+            HttpResponse<String> response = Unirest.delete("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+              .header("content-type", "application/json")
+              .asString();
+        - lang: Javascript_jquery
+          source: |-
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              "method": "DELETE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript_xhr
+          source: |-
+            var data = null;
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+            xhr.open("DELETE", "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            xhr.setRequestHeader("content-type", "application/json");
+
+            xhr.send(data);
+        - lang: Node_native
+          source: |-
+            var http = require("https");
+
+            var options = {
+              "method": "DELETE",
+              "hostname": "cleanse.studio",
+              "port": null,
+              "path": "/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            };
+
+            var req = http.request(options, function (res) {
+              var chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                var body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.end();
+        - lang: Node_request
+          source: |
+            var request = require("request");
+
+            var options = { method: 'DELETE',
+              url: 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D',
+              qs: { username: 'SOME_STRING_VALUE' },
+              headers: { 'content-type': 'application/json' } };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node_unirest
+          source: |
+            var unirest = require("unirest");
+
+            var req = unirest("DELETE", "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D");
+
+            req.query({
+              "username": "SOME_STRING_VALUE"
+            });
+
+            req.headers({
+              "content-type": "application/json"
+            });
+
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc_nsurlsession
+          source: |-
+            #import <Foundation/Foundation.h>
+
+            NSDictionary *headers = @{ @"content-type": @"application/json" };
+
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"DELETE"];
+            [request setAllHTTPHeaderFields:headers];
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml_cohttp
+          source: |-
+            open Cohttp_lwt_unix
+            open Cohttp
+            open Lwt
+
+            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE" in
+            let headers = Header.add (Header.init ()) "content-type" "application/json" in
+
+            Client.call ~headers `DELETE uri
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php_curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "DELETE",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/json"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php_http1
+          source: |-
+            <?php
+
+            $request = new HttpRequest();
+            $request->setUrl('https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D');
+            $request->setMethod(HTTP_METH_DELETE);
+
+            $request->setQueryData(array(
+              'username' => 'SOME_STRING_VALUE'
+            ));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php_http2
+          source: |-
+            <?php
+
+            $client = new http\Client;
+            $request = new http\Client\Request;
+
+            $request->setRequestUrl('https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D');
+            $request->setRequestMethod('DELETE');
+            $request->setQuery(new http\QueryString(array(
+              'username' => 'SOME_STRING_VALUE'
+            )));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $client->enqueue($request)->send();
+            $response = $client->getResponse();
+
+            echo $response->getBody();
+        - lang: Python_python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPSConnection("cleanse.studio")
+
+            headers = { 'content-type': "application/json" }
+
+            conn.request("DELETE", "/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE", headers=headers)
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python_requests
+          source: |-
+            import requests
+
+            url = "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D"
+
+            querystring = {"username":"SOME_STRING_VALUE"}
+
+            headers = {'content-type': 'application/json'}
+
+            response = requests.request("DELETE", url, headers=headers, params=querystring)
+
+            print(response.text)
+        - lang: Ruby_native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+            request = Net::HTTP::Delete.new(url)
+            request["content-type"] = 'application/json'
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell_curl
+          source: |-
+            curl --request DELETE \
+              --url 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
+              --header 'content-type: application/json'
+        - lang: Shell_httpie
+          source: |-
+            http DELETE 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
+              content-type:application/json
+        - lang: Shell_wget
+          source: |-
+            wget --quiet \
+              --method DELETE \
+              --header 'content-type: application/json' \
+              --output-document \
+              - 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE'
+        - lang: Swift_nsurlsession
+          source: |-
+            import Foundation
+
+            let headers = ["content-type": "application/json"]
+
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")!,
+                                                    cachePolicy: .UseProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.HTTPMethod = "DELETE"
+            request.allHTTPHeaderFields = headers
+
+            let session = NSURLSession.sharedSession()
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                println(error)
+              } else {
+                let httpResponse = response as? NSHTTPURLResponse
+                println(httpResponse)
+              }
+            })
+
+            dataTask.resume()
+    get:
+      description: Download Cleaned List
+      operationId: ListCleanedTestListCleanse3ZipGet
+      parameters:
+        - description: List filename to delete
+          in: path
+          name: list_name
+          required: true
+          type: string
+        - description: ''
+          in: query
+          name: username
+          required: true
+          type: string
+        - description: ''
+          in: header
+          name: Content-Type
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+      security:
+        - Bearer: []
+      summary: Download Cleaned List
+      tags:
+        - Download Cleaned List
+      x-code-samples:
+        - lang: C_libcurl
+          source: |-
+            CURL *hnd = curl_easy_init();
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+
+            struct curl_slist *headers = NULL;
+            headers = curl_slist_append(headers, "content-type: application/json");
+            curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp_restsharp
+          source: |-
+            var client = new RestClient("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("content-type", "application/json");
+            IRestResponse response = client.Execute(request);
+        - lang: Go_native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java_okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+              .get()
+              .addHeader("content-type", "application/json")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java_unirest
+          source: |-
+            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+              .header("content-type", "application/json")
+              .asString();
+        - lang: Javascript_jquery
+          source: |-
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript_xhr
+          source: |-
+            var data = null;
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+            xhr.open("GET", "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            xhr.setRequestHeader("content-type", "application/json");
+
+            xhr.send(data);
+        - lang: Node_native
+          source: |-
+            var http = require("https");
+
+            var options = {
+              "method": "GET",
+              "hostname": "cleanse.studio",
+              "port": null,
+              "path": "/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            };
+
+            var req = http.request(options, function (res) {
+              var chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                var body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.end();
+        - lang: Node_request
+          source: |
+            var request = require("request");
+
+            var options = { method: 'GET',
+              url: 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D',
+              qs: { username: 'SOME_STRING_VALUE' },
+              headers: { 'content-type': 'application/json' } };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node_unirest
+          source: |
+            var unirest = require("unirest");
+
+            var req = unirest("GET", "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D");
+
+            req.query({
+              "username": "SOME_STRING_VALUE"
+            });
+
+            req.headers({
+              "content-type": "application/json"
+            });
+
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc_nsurlsession
+          source: |-
+            #import <Foundation/Foundation.h>
+
+            NSDictionary *headers = @{ @"content-type": @"application/json" };
+
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"GET"];
+            [request setAllHTTPHeaderFields:headers];
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml_cohttp
+          source: |-
+            open Cohttp_lwt_unix
+            open Cohttp
+            open Lwt
+
+            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE" in
+            let headers = Header.add (Header.init ()) "content-type" "application/json" in
+
+            Client.call ~headers `GET uri
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php_curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/json"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php_http1
+          source: |-
+            <?php
+
+            $request = new HttpRequest();
+            $request->setUrl('https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D');
+            $request->setMethod(HTTP_METH_GET);
+
+            $request->setQueryData(array(
+              'username' => 'SOME_STRING_VALUE'
+            ));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php_http2
+          source: |-
+            <?php
+
+            $client = new http\Client;
+            $request = new http\Client\Request;
+
+            $request->setRequestUrl('https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D');
+            $request->setRequestMethod('GET');
+            $request->setQuery(new http\QueryString(array(
+              'username' => 'SOME_STRING_VALUE'
+            )));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $client->enqueue($request)->send();
+            $response = $client->getResponse();
+
+            echo $response->getBody();
+        - lang: Python_python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPSConnection("cleanse.studio")
+
+            headers = { 'content-type': "application/json" }
+
+            conn.request("GET", "/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE", headers=headers)
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python_requests
+          source: |-
+            import requests
+
+            url = "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D"
+
+            querystring = {"username":"SOME_STRING_VALUE"}
+
+            headers = {'content-type': 'application/json'}
+
+            response = requests.request("GET", url, headers=headers, params=querystring)
+
+            print(response.text)
+        - lang: Ruby_native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+            request = Net::HTTP::Get.new(url)
+            request["content-type"] = 'application/json'
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell_curl
+          source: |-
+            curl --request GET \
+              --url 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
+              --header 'content-type: application/json'
+        - lang: Shell_httpie
+          source: |-
+            http GET 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
+              content-type:application/json
+        - lang: Shell_wget
+          source: |-
+            wget --quiet \
+              --method GET \
+              --header 'content-type: application/json' \
+              --output-document \
+              - 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE'
+        - lang: Swift_nsurlsession
+          source: |-
+            import Foundation
+
+            let headers = ["content-type": "application/json"]
+
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")!,
+                                                    cachePolicy: .UseProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.HTTPMethod = "GET"
+            request.allHTTPHeaderFields = headers
+
+            let session = NSURLSession.sharedSession()
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                println(error)
+              } else {
+                let httpResponse = response as? NSHTTPURLResponse
+                println(httpResponse)
+              }
+            })
+
+            dataTask.resume()
+  '/list/cleanse/{list_id}':
+    get:
+      description: Queue cleanse task on list
+      operationId: ListCleanse11Get
+      parameters:
+        - description: List ID
+          in: path
+          name: list_id
+          required: true
+          type: integer
+        - description: ''
+          in: query
+          name: username
+          required: true
+          type: string
+        - description: ''
+          in: header
+          name: Content-Type
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+          examples:
+            application/json:
+              message: List "test-list-cleanse3.txt" has been sent for cleanse successfully.
+          schema:
+            $ref: '#/definitions/CleanseList'
+      security:
+        - Bearer: []
+      summary: Cleanse Email List
+      tags:
+        - Clean Email List
+      x-code-samples:
+        - lang: C_libcurl
+          source: |-
+            CURL *hnd = curl_easy_init();
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE");
+
+            struct curl_slist *headers = NULL;
+            headers = curl_slist_append(headers, "content-type: application/json");
+            curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp_restsharp
+          source: |-
+            var client = new RestClient("https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("content-type", "application/json");
+            IRestResponse response = client.Execute(request);
+        - lang: Go_native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java_okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
+              .get()
+              .addHeader("content-type", "application/json")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java_unirest
+          source: |-
+            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
+              .header("content-type", "application/json")
+              .asString();
+        - lang: Javascript_jquery
+          source: |-
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript_xhr
+          source: |-
+            var data = null;
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+            xhr.open("GET", "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            xhr.setRequestHeader("content-type", "application/json");
+
+            xhr.send(data);
+        - lang: Node_native
+          source: |-
+            var http = require("https");
+
+            var options = {
+              "method": "GET",
+              "hostname": "cleanse.studio",
+              "port": null,
+              "path": "/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            };
+
+            var req = http.request(options, function (res) {
+              var chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                var body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.end();
+        - lang: Node_request
+          source: |
+            var request = require("request");
+
+            var options = { method: 'GET',
+              url: 'https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D',
+              qs: { username: 'SOME_STRING_VALUE' },
+              headers: { 'content-type': 'application/json' } };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node_unirest
+          source: |
+            var unirest = require("unirest");
+
+            var req = unirest("GET", "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D");
+
+            req.query({
+              "username": "SOME_STRING_VALUE"
+            });
+
+            req.headers({
+              "content-type": "application/json"
+            });
+
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc_nsurlsession
+          source: |-
+            #import <Foundation/Foundation.h>
+
+            NSDictionary *headers = @{ @"content-type": @"application/json" };
+
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"GET"];
+            [request setAllHTTPHeaderFields:headers];
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml_cohttp
+          source: |-
+            open Cohttp_lwt_unix
+            open Cohttp
+            open Lwt
+
+            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE" in
+            let headers = Header.add (Header.init ()) "content-type" "application/json" in
+
+            Client.call ~headers `GET uri
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php_curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/json"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php_http1
+          source: |-
+            <?php
+
+            $request = new HttpRequest();
+            $request->setUrl('https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D');
+            $request->setMethod(HTTP_METH_GET);
+
+            $request->setQueryData(array(
+              'username' => 'SOME_STRING_VALUE'
+            ));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php_http2
+          source: |-
+            <?php
+
+            $client = new http\Client;
+            $request = new http\Client\Request;
+
+            $request->setRequestUrl('https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D');
+            $request->setRequestMethod('GET');
+            $request->setQuery(new http\QueryString(array(
+              'username' => 'SOME_STRING_VALUE'
+            )));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $client->enqueue($request)->send();
+            $response = $client->getResponse();
+
+            echo $response->getBody();
+        - lang: Python_python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPSConnection("cleanse.studio")
+
+            headers = { 'content-type': "application/json" }
+
+            conn.request("GET", "/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE", headers=headers)
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python_requests
+          source: |-
+            import requests
+
+            url = "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D"
+
+            querystring = {"username":"SOME_STRING_VALUE"}
+
+            headers = {'content-type': 'application/json'}
+
+            response = requests.request("GET", url, headers=headers, params=querystring)
+
+            print(response.text)
+        - lang: Ruby_native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+            request = Net::HTTP::Get.new(url)
+            request["content-type"] = 'application/json'
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell_curl
+          source: |-
+            curl --request GET \
+              --url 'https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE' \
+              --header 'content-type: application/json'
+        - lang: Shell_httpie
+          source: |-
+            http GET 'https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE' \
+              content-type:application/json
+        - lang: Shell_wget
+          source: |-
+            wget --quiet \
+              --method GET \
+              --header 'content-type: application/json' \
+              --output-document \
+              - 'https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE'
+        - lang: Swift_nsurlsession
+          source: |-
+            import Foundation
+
+            let headers = ["content-type": "application/json"]
+
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")!,
+                                                    cachePolicy: .UseProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.HTTPMethod = "GET"
+            request.allHTTPHeaderFields = headers
+
+            let session = NSURLSession.sharedSession()
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                println(error)
+              } else {
+                let httpResponse = response as? NSHTTPURLResponse
+                println(httpResponse)
+              }
+            })
+
+            dataTask.resume()
+  '/list/{list_id}':
+    delete:
+      description: Delete List
+      operationId: List7Delete
+      parameters:
+        - description: List ID
+          in: path
+          name: list_id
+          required: true
+          type: integer
+        - description: ''
+          in: query
+          name: username
+          required: true
+          type: string
+        - description: ''
+          in: header
+          name: Content-Type
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+          examples:
+            application/json:
+              message: List succesfully deleted
+          schema:
+            $ref: '#/definitions/DeleteList'
+      security:
+        - Bearer: []
+      summary: Delete List
+      tags:
+        - Delete Email List
+      x-code-samples:
+        - lang: C_libcurl
+          source: |-
+            CURL *hnd = curl_easy_init();
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "DELETE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE");
+
+            struct curl_slist *headers = NULL;
+            headers = curl_slist_append(headers, "content-type: application/json");
+            curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp_restsharp
+          source: |-
+            var client = new RestClient("https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            var request = new RestRequest(Method.DELETE);
+            request.AddHeader("content-type", "application/json");
+            IRestResponse response = client.Execute(request);
+        - lang: Go_native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"DELETE\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java_okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
+              .delete(null)
+              .addHeader("content-type", "application/json")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java_unirest
+          source: |-
+            HttpResponse<String> response = Unirest.delete("https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
+              .header("content-type", "application/json")
+              .asString();
+        - lang: Javascript_jquery
+          source: |-
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              "method": "DELETE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript_xhr
+          source: |-
+            var data = null;
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+            xhr.open("DELETE", "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            xhr.setRequestHeader("content-type", "application/json");
+
+            xhr.send(data);
+        - lang: Node_native
+          source: |-
+            var http = require("https");
+
+            var options = {
+              "method": "DELETE",
+              "hostname": "cleanse.studio",
+              "port": null,
+              "path": "/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            };
+
+            var req = http.request(options, function (res) {
+              var chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                var body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.end();
+        - lang: Node_request
+          source: |
+            var request = require("request");
+
+            var options = { method: 'DELETE',
+              url: 'https://cleanse.studio/api/v1/list/%7Blist_id%7D',
+              qs: { username: 'SOME_STRING_VALUE' },
+              headers: { 'content-type': 'application/json' } };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node_unirest
+          source: |
+            var unirest = require("unirest");
+
+            var req = unirest("DELETE", "https://cleanse.studio/api/v1/list/%7Blist_id%7D");
+
+            req.query({
+              "username": "SOME_STRING_VALUE"
+            });
+
+            req.headers({
+              "content-type": "application/json"
+            });
+
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc_nsurlsession
+          source: |-
+            #import <Foundation/Foundation.h>
+
+            NSDictionary *headers = @{ @"content-type": @"application/json" };
+
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"DELETE"];
+            [request setAllHTTPHeaderFields:headers];
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml_cohttp
+          source: |-
+            open Cohttp_lwt_unix
+            open Cohttp
+            open Lwt
+
+            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE" in
+            let headers = Header.add (Header.init ()) "content-type" "application/json" in
+
+            Client.call ~headers `DELETE uri
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php_curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "DELETE",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/json"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php_http1
+          source: |-
+            <?php
+
+            $request = new HttpRequest();
+            $request->setUrl('https://cleanse.studio/api/v1/list/%7Blist_id%7D');
+            $request->setMethod(HTTP_METH_DELETE);
+
+            $request->setQueryData(array(
+              'username' => 'SOME_STRING_VALUE'
+            ));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php_http2
+          source: |-
+            <?php
+
+            $client = new http\Client;
+            $request = new http\Client\Request;
+
+            $request->setRequestUrl('https://cleanse.studio/api/v1/list/%7Blist_id%7D');
+            $request->setRequestMethod('DELETE');
+            $request->setQuery(new http\QueryString(array(
+              'username' => 'SOME_STRING_VALUE'
+            )));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $client->enqueue($request)->send();
+            $response = $client->getResponse();
+
+            echo $response->getBody();
+        - lang: Python_python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPSConnection("cleanse.studio")
+
+            headers = { 'content-type': "application/json" }
+
+            conn.request("DELETE", "/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE", headers=headers)
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python_requests
+          source: |-
+            import requests
+
+            url = "https://cleanse.studio/api/v1/list/%7Blist_id%7D"
+
+            querystring = {"username":"SOME_STRING_VALUE"}
+
+            headers = {'content-type': 'application/json'}
+
+            response = requests.request("DELETE", url, headers=headers, params=querystring)
+
+            print(response.text)
+        - lang: Ruby_native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+            request = Net::HTTP::Delete.new(url)
+            request["content-type"] = 'application/json'
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell_curl
+          source: |-
+            curl --request DELETE \
+              --url 'https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE' \
+              --header 'content-type: application/json'
+        - lang: Shell_httpie
+          source: |-
+            http DELETE 'https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE' \
+              content-type:application/json
+        - lang: Shell_wget
+          source: |-
+            wget --quiet \
+              --method DELETE \
+              --header 'content-type: application/json' \
+              --output-document \
+              - 'https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE'
+        - lang: Swift_nsurlsession
+          source: |-
+            import Foundation
+
+            let headers = ["content-type": "application/json"]
+
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")!,
+                                                    cachePolicy: .UseProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.HTTPMethod = "DELETE"
+            request.allHTTPHeaderFields = headers
+
+            let session = NSURLSession.sharedSession()
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                println(error)
+              } else {
+                let httpResponse = response as? NSHTTPURLResponse
+                println(httpResponse)
+              }
+            })
+
+            dataTask.resume()
+  /lists:
+    get:
+      description: Get current lists uploaded.
+      operationId: ListsGet
+      parameters:
+        - description: ''
+          in: query
+          name: username
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Lists'
+      security:
+        - Bearer: []
+      summary: Get email lists
+      tags:
+        - Get Email Lists
+      x-code-samples:
+        - lang: C_libcurl
+          source: |-
+            CURL *hnd = curl_easy_init();
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE");
+
+            struct curl_slist *headers = NULL;
+            headers = curl_slist_append(headers, "content-type: application/json");
+            curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp_restsharp
+          source: |-
+            var client = new RestClient("https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("content-type", "application/json");
+            IRestResponse response = client.Execute(request);
+        - lang: Go_native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java_okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE")
+              .get()
+              .addHeader("content-type", "application/json")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java_unirest
+          source: |-
+            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE")
+              .header("content-type", "application/json")
+              .asString();
+        - lang: Javascript_jquery
+          source: |-
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript_xhr
+          source: |-
+            var data = null;
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+            xhr.open("GET", "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE");
+            xhr.setRequestHeader("content-type", "application/json");
+
+            xhr.send(data);
+        - lang: Node_native
+          source: |-
+            var http = require("https");
+
+            var options = {
+              "method": "GET",
+              "hostname": "cleanse.studio",
+              "port": null,
+              "path": "/api/v1/lists?username=SOME_STRING_VALUE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            };
+
+            var req = http.request(options, function (res) {
+              var chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                var body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.end();
+        - lang: Node_request
+          source: |
+            var request = require("request");
+
+            var options = { method: 'GET',
+              url: 'https://cleanse.studio/api/v1/lists',
+              qs: { username: 'SOME_STRING_VALUE' },
+              headers: { 'content-type': 'application/json' } };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node_unirest
+          source: |
+            var unirest = require("unirest");
+
+            var req = unirest("GET", "https://cleanse.studio/api/v1/lists");
+
+            req.query({
+              "username": "SOME_STRING_VALUE"
+            });
+
+            req.headers({
+              "content-type": "application/json"
+            });
+
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc_nsurlsession
+          source: |-
+            #import <Foundation/Foundation.h>
+
+            NSDictionary *headers = @{ @"content-type": @"application/json" };
+
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"GET"];
+            [request setAllHTTPHeaderFields:headers];
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml_cohttp
+          source: |-
+            open Cohttp_lwt_unix
+            open Cohttp
+            open Lwt
+
+            let uri = Uri.of_string "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE" in
+            let headers = Header.add (Header.init ()) "content-type" "application/json" in
+
+            Client.call ~headers `GET uri
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php_curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/json"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php_http1
+          source: |-
+            <?php
+
+            $request = new HttpRequest();
+            $request->setUrl('https://cleanse.studio/api/v1/lists');
+            $request->setMethod(HTTP_METH_GET);
+
+            $request->setQueryData(array(
+              'username' => 'SOME_STRING_VALUE'
+            ));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php_http2
+          source: |-
+            <?php
+
+            $client = new http\Client;
+            $request = new http\Client\Request;
+
+            $request->setRequestUrl('https://cleanse.studio/api/v1/lists');
+            $request->setRequestMethod('GET');
+            $request->setQuery(new http\QueryString(array(
+              'username' => 'SOME_STRING_VALUE'
+            )));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $client->enqueue($request)->send();
+            $response = $client->getResponse();
+
+            echo $response->getBody();
+        - lang: Python_python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPSConnection("cleanse.studio")
+
+            headers = { 'content-type': "application/json" }
+
+            conn.request("GET", "/api/v1/lists?username=SOME_STRING_VALUE", headers=headers)
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python_requests
+          source: |-
+            import requests
+
+            url = "https://cleanse.studio/api/v1/lists"
+
+            querystring = {"username":"SOME_STRING_VALUE"}
+
+            headers = {'content-type': 'application/json'}
+
+            response = requests.request("GET", url, headers=headers, params=querystring)
+
+            print(response.text)
+        - lang: Ruby_native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE")
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+            request = Net::HTTP::Get.new(url)
+            request["content-type"] = 'application/json'
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell_curl
+          source: |-
+            curl --request GET \
+              --url 'https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE' \
+              --header 'content-type: application/json'
+        - lang: Shell_httpie
+          source: |-
+            http GET 'https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE' \
+              content-type:application/json
+        - lang: Shell_wget
+          source: |-
+            wget --quiet \
+              --method GET \
+              --header 'content-type: application/json' \
+              --output-document \
+              - 'https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE'
+        - lang: Swift_nsurlsession
+          source: |-
+            import Foundation
+
+            let headers = ["content-type": "application/json"]
+
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE")!,
+                                                    cachePolicy: .UseProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.HTTPMethod = "GET"
+            request.allHTTPHeaderFields = headers
+
+            let session = NSURLSession.sharedSession()
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                println(error)
+              } else {
+                let httpResponse = response as? NSHTTPURLResponse
+                println(httpResponse)
+              }
+            })
+
+            dataTask.resume()
+  /lists/cleaned:
+    get:
+      description: 'TODO: Add Description'
+      operationId: ListsCleanedGet
+      parameters:
+        - description: ''
+          in: query
+          name: username
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: ''
+          examples:
+            application/json:
+              data:
+                files:
+                  - test-list-cleanse3.zip
+          schema:
+            $ref: '#/definitions/Getcleaneduserlists'
+      security:
+        - Bearer: []
+      summary: Get cleaned user lists
+      tags:
+        - Get Cleaned Email Lists
+      x-code-samples:
+        - lang: C_libcurl
+          source: |-
+            CURL *hnd = curl_easy_init();
+
+            curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
+
+            struct curl_slist *headers = NULL;
+            headers = curl_slist_append(headers, "content-type: application/json");
+            curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+            CURLcode ret = curl_easy_perform(hnd);
+        - lang: Csharp_restsharp
+          source: |-
+            var client = new RestClient("https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("content-type", "application/json");
+            IRestResponse response = client.Execute(request);
+        - lang: Go_native
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+        - lang: Java_okhttp
+          source: |-
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+              .url("https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
+              .get()
+              .addHeader("content-type", "application/json")
+              .build();
+
+            Response response = client.newCall(request).execute();
+        - lang: Java_unirest
+          source: |-
+            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
+              .header("content-type", "application/json")
+              .asString();
+        - lang: Javascript_jquery
+          source: |-
+            var settings = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json"
+              }
+            }
+
+            $.ajax(settings).done(function (response) {
+              console.log(response);
+            });
+        - lang: Javascript_xhr
+          source: |-
+            var data = null;
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+              }
+            });
+
+            xhr.open("GET", "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
+            xhr.setRequestHeader("content-type", "application/json");
+
+            xhr.send(data);
+        - lang: Node_native
+          source: |-
+            var http = require("https");
+
+            var options = {
+              "method": "GET",
+              "hostname": "cleanse.studio",
+              "port": null,
+              "path": "/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
+              "headers": {
+                "content-type": "application/json"
+              }
+            };
+
+            var req = http.request(options, function (res) {
+              var chunks = [];
+
+              res.on("data", function (chunk) {
+                chunks.push(chunk);
+              });
+
+              res.on("end", function () {
+                var body = Buffer.concat(chunks);
+                console.log(body.toString());
+              });
+            });
+
+            req.end();
+        - lang: Node_request
+          source: |
+            var request = require("request");
+
+            var options = { method: 'GET',
+              url: 'https://cleanse.studio/api/v1/lists/cleaned',
+              qs: { username: 'SOME_STRING_VALUE' },
+              headers: { 'content-type': 'application/json' } };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Node_unirest
+          source: |
+            var unirest = require("unirest");
+
+            var req = unirest("GET", "https://cleanse.studio/api/v1/lists/cleaned");
+
+            req.query({
+              "username": "SOME_STRING_VALUE"
+            });
+
+            req.headers({
+              "content-type": "application/json"
+            });
+
+
+            req.end(function (res) {
+              if (res.error) throw new Error(res.error);
+
+              console.log(res.body);
+            });
+        - lang: Objc_nsurlsession
+          source: |-
+            #import <Foundation/Foundation.h>
+
+            NSDictionary *headers = @{ @"content-type": @"application/json" };
+
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE"]
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:10.0];
+            [request setHTTPMethod:@"GET"];
+            [request setAllHTTPHeaderFields:headers];
+
+            NSURLSession *session = [NSURLSession sharedSession];
+            NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            if (error) {
+                                                                NSLog(@"%@", error);
+                                                            } else {
+                                                                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                                NSLog(@"%@", httpResponse);
+                                                            }
+                                                        }];
+            [dataTask resume];
+        - lang: Ocaml_cohttp
+          source: |-
+            open Cohttp_lwt_unix
+            open Cohttp
+            open Lwt
+
+            let uri = Uri.of_string "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE" in
+            let headers = Header.add (Header.init ()) "content-type" "application/json" in
+
+            Client.call ~headers `GET uri
+            >>= fun (res, body_stream) ->
+              (* Do stuff with the result *)
+        - lang: Php_curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/json"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php_http1
+          source: |-
+            <?php
+
+            $request = new HttpRequest();
+            $request->setUrl('https://cleanse.studio/api/v1/lists/cleaned');
+            $request->setMethod(HTTP_METH_GET);
+
+            $request->setQueryData(array(
+              'username' => 'SOME_STRING_VALUE'
+            ));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php_http2
+          source: |-
+            <?php
+
+            $client = new http\Client;
+            $request = new http\Client\Request;
+
+            $request->setRequestUrl('https://cleanse.studio/api/v1/lists/cleaned');
+            $request->setRequestMethod('GET');
+            $request->setQuery(new http\QueryString(array(
+              'username' => 'SOME_STRING_VALUE'
+            )));
+
+            $request->setHeaders(array(
+              'content-type' => 'application/json'
+            ));
+
+            $client->enqueue($request)->send();
+            $response = $client->getResponse();
+
+            echo $response->getBody();
+        - lang: Python_python3
+          source: |-
+            import http.client
+
+            conn = http.client.HTTPSConnection("cleanse.studio")
+
+            headers = { 'content-type': "application/json" }
+
+            conn.request("GET", "/api/v1/lists/cleaned?username=SOME_STRING_VALUE", headers=headers)
+
+            res = conn.getresponse()
+            data = res.read()
+
+            print(data.decode("utf-8"))
+        - lang: Python_requests
+          source: |-
+            import requests
+
+            url = "https://cleanse.studio/api/v1/lists/cleaned"
+
+            querystring = {"username":"SOME_STRING_VALUE"}
+
+            headers = {'content-type': 'application/json'}
+
+            response = requests.request("GET", url, headers=headers, params=querystring)
+
+            print(response.text)
+        - lang: Ruby_native
+          source: |-
+            require 'uri'
+            require 'net/http'
+
+            url = URI("https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
+
+            http = Net::HTTP.new(url.host, url.port)
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+            request = Net::HTTP::Get.new(url)
+            request["content-type"] = 'application/json'
+
+            response = http.request(request)
+            puts response.read_body
+        - lang: Shell_curl
+          source: |-
+            curl --request GET \
+              --url 'https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE' \
+              --header 'content-type: application/json'
+        - lang: Shell_httpie
+          source: |-
+            http GET 'https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE' \
+              content-type:application/json
+        - lang: Shell_wget
+          source: |-
+            wget --quiet \
+              --method GET \
+              --header 'content-type: application/json' \
+              --output-document \
+              - 'https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE'
+        - lang: Swift_nsurlsession
+          source: |-
+            import Foundation
+
+            let headers = ["content-type": "application/json"]
+
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE")!,
+                                                    cachePolicy: .UseProtocolCachePolicy,
+                                                timeoutInterval: 10.0)
+            request.HTTPMethod = "GET"
+            request.allHTTPHeaderFields = headers
+
+            let session = NSURLSession.sharedSession()
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+              if (error != nil) {
+                println(error)
+              } else {
+                let httpResponse = response as? NSHTTPURLResponse
+                println(httpResponse)
+              }
+            })
+
+            dataTask.resume()
+produces:
+  - application/json
+schemes:
+  - https
+securityDefinitions:
+  Bearer:
+    description: |
+      For accessing the API a valid JWT token must be passed in all the queries in
+      the 'Authorization' header.
+
+
+      A valid JWT token is generated by the API and retourned as answer of a call
+      to the route /auth given a valid user email and password.
+
+
+      The following syntax must be used in the 'Authorization' header :
+
+          Bearer: xxxxxx.yyyyyyy.zzzzzz
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: '2.0'

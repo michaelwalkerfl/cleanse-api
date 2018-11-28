@@ -16,7 +16,7 @@ var SwaggerFile = require('../web_deploy/swagger.json'); //this wants a double d
 
 var results = SwaggerSnippet.getSwaggerSnippets(SwaggerFile,
         [
-        'perl_perl5',
+        // 'perl_perl5',
         'c_libcurl', //(default)
         'csharp_restsharp', //(default)
         'go_native', //(default)

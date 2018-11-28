@@ -1,0 +1,5 @@
+var client = new RestClient("http://example.com/api/v1/lists?username=SOME_STRING_VALUE");
+var request = new RestRequest(Method.GET);
+request.AddHeader("authorization", "Bearer REPLACE_BEARER_TOKEN");
+request.AddHeader("content-type", "application/json");
+IRestResponse response = client.Execute(request);

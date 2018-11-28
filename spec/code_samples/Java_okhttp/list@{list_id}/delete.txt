@@ -1,0 +1,10 @@
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("http://example.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
+  .delete(null)
+  .addHeader("content-type", "application/json")
+  .addHeader("authorization", "Bearer REPLACE_BEARER_TOKEN")
+  .build();
+
+Response response = client.newCall(request).execute();

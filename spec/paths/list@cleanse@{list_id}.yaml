@@ -1,0 +1,34 @@
+get:
+  description: Queue cleanse task on list
+  summary: CleanseList
+  tags:
+  - clean_email_list
+  operationId: ListCleanse11Get
+  produces:
+  - application/json
+  parameters:
+  - description: 'List ID'
+    in: path
+    name: list_id
+    required: true
+    type: integer
+  - name: username
+    in: query
+    required: true
+    type: string
+    description: ''
+  - name: Content-Type
+    in: header
+    required: true
+    type: string
+    description: ''
+  responses:
+    200:
+      description: ''
+      schema:
+        $ref: '#/definitions/CleanseList'
+      examples:
+        application/json:
+          message: List "test-list-cleanse3.txt" has been sent for cleanse successfully.
+  security:
+  - auth: []

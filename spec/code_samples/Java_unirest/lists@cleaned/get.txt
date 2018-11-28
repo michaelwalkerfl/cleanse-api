@@ -1,0 +1,4 @@
+HttpResponse<String> response = Unirest.get("http://example.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
+  .header("content-type", "application/json")
+  .header("authorization", "Bearer REPLACE_BEARER_TOKEN")
+  .asString();

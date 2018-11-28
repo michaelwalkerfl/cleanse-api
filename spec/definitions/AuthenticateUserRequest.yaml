@@ -1,0 +1,13 @@
+properties:
+  email:
+    description: Account Email address
+    example: im@cleanse.studio
+    type: string
+  password:
+    description: Account Password
+    example: changethispassword_
+    type: string
+type: object
+required:
+- email
+- password

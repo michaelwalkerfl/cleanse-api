@@ -1,0 +1,9 @@
+type: object
+properties:
+  refresh:
+    type: string
+  token:
+    type: string
+required:
+- refresh
+- token

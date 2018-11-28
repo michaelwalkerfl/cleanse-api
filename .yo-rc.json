@@ -4,7 +4,7 @@
     "importedSpec": "/Users/uniacid/Downloads/Cleanse API.postman_collection-SwaggerYaml.yaml",
     "name": "Cleanse",
     "repo": "michaelwalkerfl/cleanse-api",
-    "splitSpec": false,
+    "splitSpec": true,
     "samples": true,
     "installSwaggerUI": true
   }

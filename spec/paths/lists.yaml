@@ -1,0 +1,21 @@
+get:
+  description: Get current lists uploaded.
+  summary: Get email lists
+  tags:
+  - get_email_lists
+  operationId: ListsGet
+  produces:
+  - application/json
+  parameters:
+  - name: username
+    in: query
+    required: true
+    type: string
+    description: ''
+  responses:
+    200:
+      description: ''
+      schema:
+        $ref: '#/definitions/Lists'
+  security:
+  - auth: []

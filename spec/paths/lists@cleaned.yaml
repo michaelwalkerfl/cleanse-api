@@ -1,0 +1,26 @@
+get:
+  description: 'TODO: Add Description'
+  summary: Get cleaned user lists
+  tags:
+  - get_cleaned_email_lists
+  operationId: ListsCleanedGet
+  produces:
+  - application/json
+  parameters:
+  - name: username
+    in: query
+    required: true
+    type: string
+    description: ''
+  responses:
+    200:
+      description: ''
+      schema:
+        $ref: '#/definitions/Getcleaneduserlists'
+      examples:
+        application/json:
+          data:
+            files:
+            - test-list-cleanse3.zip
+  security:
+  - auth: []

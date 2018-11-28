@@ -1,0 +1,8 @@
+example:
+  message: List succesfully deleted
+type: object
+properties:
+  message:
+    type: string
+required:
+- message

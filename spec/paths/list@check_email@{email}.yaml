@@ -1,0 +1,35 @@
+get:
+  description: Queue cleanse task on list
+  summary: CleanseListCheckEmail
+  tags:
+  - clean_single_email
+  operationId: ListCheckEmailTestTestComGet
+  produces:
+  - application/json
+  parameters:
+  - description: 'Email to check and validate'
+    in: path
+    name: email
+    required: true
+    type: string
+  - name: username
+    in: query
+    required: true
+    type: string
+    description: ''
+  - name: Content-Type
+    in: header
+    required: true
+    type: string
+    description: ''
+  responses:
+    200:
+      description: ''
+      schema:
+        $ref: '#/definitions/CleanseListCheckEmail'
+      examples:
+        application/json:
+          message: Email cleanse successful.
+          success: true
+  security:
+  - auth: []

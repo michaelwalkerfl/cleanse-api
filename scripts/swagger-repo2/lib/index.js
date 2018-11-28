@@ -117,7 +117,7 @@ exports.bundle = function (options) {
   options = options || {};
   var swagger = readYaml(mainFile);
   swagger.parameters = readYaml(parametersFile);
-  swagger.responses = readYaml(responsesFile);
+  // swagger.responses = readYaml(responsesFile);
 
   if (dirExist(pathsDir)) {
     console.log('Adding paths to spec');

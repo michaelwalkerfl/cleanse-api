@@ -7,6 +7,7 @@
     "cors": "^2.8.4",
     "deploy-to-gh-pages": "^1.1.0",
     "express": "^4.16.2",
+    "gh-pages": "^2.0.1",
     "gulp": "^3.9.1",
     "gulp-connect": "^4.2.0",
     "gulp-util": "^3.0.7",
@@ -41,6 +42,7 @@
     "deploy-branch": "node ./scripts/deploy-branch.js",
     "swagger2repo": "npm run swagger sync-with-swagger",
     "restlet2repo": "node ./scripts/fix-restlet.js restlet_studio/swagger.yaml && npm run swagger sync-with-swagger restlet_studio/swagger.yaml-modified && git status",
-    "repo2swagger": "npm run swagger bundle -y -o web_deploy/swagger.yaml && npm run swagger bundle -o web_deploy/swagger.json"
+    "repo2swagger": "npm run swagger bundle -y -o web_deploy/swagger.yaml && npm run swagger bundle -o web_deploy/swagger.json",
+    "gh-pages": "gh-pages -d web_deploy"
   }
 }

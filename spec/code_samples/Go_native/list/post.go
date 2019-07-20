@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	url := "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE"
+	url := "https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE"
 
 	payload := strings.NewReader("{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}")
 

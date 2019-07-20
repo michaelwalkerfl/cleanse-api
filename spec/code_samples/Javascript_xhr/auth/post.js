@@ -12,7 +12,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("POST", "https://cleanse.studio/api/v1/auth");
+xhr.open("POST", "https://analyzemail.com/api/v1/auth");
 xhr.setRequestHeader("content-type", "application/json");
 
 xhr.send(data);

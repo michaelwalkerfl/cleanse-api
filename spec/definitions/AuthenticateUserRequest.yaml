@@ -1,7 +1,7 @@
 properties:
   email:
     description: Account Email address
-    example: im@cleanse.studio
+    example: im@analyzemail.com
     type: string
   password:
     description: Account Password

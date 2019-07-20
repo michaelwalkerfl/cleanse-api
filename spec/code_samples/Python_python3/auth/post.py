@@ -1,6 +1,6 @@
 import http.client
 
-conn = http.client.HTTPSConnection("cleanse.studio")
+conn = http.client.HTTPSConnection("analyzemail.com")
 
 payload = "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}"
 

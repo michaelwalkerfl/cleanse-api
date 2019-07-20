@@ -1,6 +1,6 @@
 var unirest = require("unirest");
 
-var req = unirest("DELETE", "https://cleanse.studio/api/v1/list/%7Blist_id%7D");
+var req = unirest("DELETE", "https://analyzemail.com/api/v1/list/%7Blist_id%7D");
 
 req.query({
   "username": "SOME_STRING_VALUE"

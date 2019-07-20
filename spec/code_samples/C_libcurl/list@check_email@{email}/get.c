@@ -1,7 +1,7 @@
 CURL *hnd = curl_easy_init();
 
 curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
-curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
+curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
 
 struct curl_slist *headers = NULL;
 headers = curl_slist_append(headers, "content-type: application/json");

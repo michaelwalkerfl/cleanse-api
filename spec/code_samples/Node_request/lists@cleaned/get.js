@@ -1,7 +1,7 @@
 var request = require("request");
 
 var options = { method: 'GET',
-  url: 'https://cleanse.studio/api/v1/lists/cleaned',
+  url: 'https://analyzemail.com/api/v1/lists/cleaned',
   qs: { username: 'SOME_STRING_VALUE' },
   headers: { 'content-type': 'application/json' } };
 

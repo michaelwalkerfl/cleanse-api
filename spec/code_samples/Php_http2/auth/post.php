@@ -6,7 +6,7 @@ $request = new http\Client\Request;
 $body = new http\Message\Body;
 $body->append('{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}');
 
-$request->setRequestUrl('https://cleanse.studio/api/v1/auth');
+$request->setRequestUrl('https://analyzemail.com/api/v1/auth');
 $request->setRequestMethod('POST');
 $request->setBody($body);
 

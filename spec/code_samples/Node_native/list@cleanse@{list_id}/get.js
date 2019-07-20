@@ -2,7 +2,7 @@ var http = require("https");
 
 var options = {
   "method": "GET",
-  "hostname": "cleanse.studio",
+  "hostname": "analyzemail.com",
   "port": null,
   "path": "/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
   "headers": {

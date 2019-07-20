@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	url := "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE"
+	url := "https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE"
 
 	req, _ := http.NewRequest("GET", url, nil)
 

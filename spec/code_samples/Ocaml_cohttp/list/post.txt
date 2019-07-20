@@ -2,7 +2,7 @@ open Cohttp_lwt_unix
 open Cohttp
 open Lwt
 
-let uri = Uri.of_string "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE" in
+let uri = Uri.of_string "https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE" in
 let headers = Header.add (Header.init ()) "content-type" "application/json" in
 let body = Cohttp_lwt_body.of_string "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}" in
 

@@ -9,7 +9,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
+xhr.open("GET", "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
 xhr.setRequestHeader("content-type", "application/json");
 
 xhr.send(data);

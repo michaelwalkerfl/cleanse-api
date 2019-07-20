@@ -3,7 +3,7 @@
 $client = new http\Client;
 $request = new http\Client\Request;
 
-$request->setRequestUrl('https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D');
+$request->setRequestUrl('https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D');
 $request->setRequestMethod('GET');
 $request->setQuery(new http\QueryString(array(
   'username' => 'SOME_STRING_VALUE'

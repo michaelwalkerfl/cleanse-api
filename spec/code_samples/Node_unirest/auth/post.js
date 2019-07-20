@@ -1,6 +1,6 @@
 var unirest = require("unirest");
 
-var req = unirest("POST", "https://cleanse.studio/api/v1/auth");
+var req = unirest("POST", "https://analyzemail.com/api/v1/auth");
 
 req.headers({
   "content-type": "application/json"

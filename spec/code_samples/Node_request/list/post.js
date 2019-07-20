@@ -1,7 +1,7 @@
 var request = require("request");
 
 var options = { method: 'POST',
-  url: 'https://cleanse.studio/api/v1/list',
+  url: 'https://analyzemail.com/api/v1/list',
   qs: { username: 'SOME_STRING_VALUE' },
   headers: { 'content-type': 'application/json' },
   body:

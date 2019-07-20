@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
+  CURLOPT_URL => "https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,

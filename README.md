@@ -1,4 +1,4 @@
-# Cleanse OpenAPI Specification
+# Analyze OpenAPI Specification
 [![Build Status](https://travis-ci.org/michaelwalkerfl/cleanse-api.svg?branch=master)](https://travis-ci.org/michaelwalkerfl/cleanse-api)
 
 

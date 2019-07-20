@@ -1,6 +1,6 @@
 import requests
 
-url = "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D"
+url = "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D"
 
 querystring = {"username":"SOME_STRING_VALUE"}
 

@@ -1,7 +1,7 @@
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE",
+  "url": "https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE",
   "method": "POST",
   "headers": {
     "content-type": "application/json"

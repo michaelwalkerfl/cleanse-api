@@ -2,7 +2,7 @@ import Foundation
 
 let headers = ["content-type": "application/json"]
 
-var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE")!,
+var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE")!,
                                         cachePolicy: .UseProtocolCachePolicy,
                                     timeoutInterval: 10.0)
 request.HTTPMethod = "GET"

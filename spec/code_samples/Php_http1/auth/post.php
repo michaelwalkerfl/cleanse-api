@@ -1,7 +1,7 @@
 <?php
 
 $request = new HttpRequest();
-$request->setUrl('https://cleanse.studio/api/v1/auth');
+$request->setUrl('https://analyzemail.com/api/v1/auth');
 $request->setMethod(HTTP_METH_POST);
 
 $request->setHeaders(array(

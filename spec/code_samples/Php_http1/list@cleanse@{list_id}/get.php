@@ -1,7 +1,7 @@
 <?php
 
 $request = new HttpRequest();
-$request->setUrl('https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D');
+$request->setUrl('https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D');
 $request->setMethod(HTTP_METH_GET);
 
 $request->setQueryData(array(

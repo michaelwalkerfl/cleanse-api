@@ -6,7 +6,7 @@ NSDictionary *parameters = @{ @"filename": @"<ADD STRING VALUE>",
 
 NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
 
-NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE"]
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE"]
                                                        cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                    timeoutInterval:10.0];
 [request setHTTPMethod:@"POST"];

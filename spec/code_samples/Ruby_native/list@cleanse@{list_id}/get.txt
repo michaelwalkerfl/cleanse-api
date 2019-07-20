@@ -1,7 +1,7 @@
 require 'uri'
 require 'net/http'
 
-url = URI("https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
+url = URI("https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true

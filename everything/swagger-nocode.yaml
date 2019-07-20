@@ -3,16 +3,16 @@ info:
   version: '1.0'
   title: Cleanse API
   description: |
-    ![logo](https://cleanse.studio/static/images/dark-logo.png "Cleanse.studio")
+    ![logo](https://analyzemail.com/static/images/logo.png "analyzemail.com")
 
-    **This collection is intended to help utilize the cleanse.studio API**
+    **This collection is intended to help utilize the analyzemail.com API**
 
-    If you are not already signed up, please visit for your free developer account [https://cleanse.studio/](https://cleanse.studio/)
+    If you are not already signed up, please visit for your free developer account [https://analyzemail.com/](https://analyzemail.com/)
 
 
     ---
   contact: {}
-host: cleanse.studio
+host: analyzemail.com
 basePath: /api/v1
 securityDefinitions:
   Bearer:
@@ -354,7 +354,7 @@ definitions:
     properties:
       email:
         description: Account Email address
-        example: im@cleanse.studio
+        example: im@analyzemail.com
         type: string
       password:
         description: Account Password

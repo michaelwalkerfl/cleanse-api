@@ -21,7 +21,7 @@ definitions:
     properties:
       email:
         description: Account Email address
-        example: im@cleanse.studio
+        example: im@analyzemail.com
         type: string
       password:
         description: Account Password
@@ -193,15 +193,15 @@ definitions:
     required:
       - data
     type: object
-host: cleanse.studio
+host: analyzemail.com
 info:
   contact: {}
   description: |
-    ![logo](https://cleanse.studio/static/images/dark-logo.png "Cleanse.studio")
+    ![logo](https://analyzemail.com/static/images/logo.png "analyzemail.com")
 
-    **This collection is intended to help utilize the cleanse.studio API**
+    **This collection is intended to help utilize the analyzemail.com API**
 
-    If you are not already signed up, please visit for your free developer account [https://cleanse.studio/](https://cleanse.studio/)
+    If you are not already signed up, please visit for your free developer account [https://analyzemail.com/](https://analyzemail.com/)
 
 
     ---
@@ -254,7 +254,7 @@ paths:
             CURL *hnd = curl_easy_init();
 
             curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/auth");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/auth");
 
             struct curl_slist *headers = NULL;
             headers = curl_slist_append(headers, "content-type: application/json");
@@ -265,13 +265,13 @@ paths:
             CURLcode ret = curl_easy_perform(hnd);
         - lang: Csharp_restsharp
           source: |-
-            var client = new RestClient("https://cleanse.studio/api/v1/auth");
+            var client = new RestClient("https://analyzemail.com/api/v1/auth");
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
             request.AddParameter("application/json", "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
         - lang: Go_native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/auth\"\n\n\tpayload := strings.NewReader(\"{\\\"email\\\":\\\"<ADD STRING VALUE>\\\",\\\"password\\\":\\\"<ADD STRING VALUE>\\\"}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://analyzemail.com/api/v1/auth\"\n\n\tpayload := strings.NewReader(\"{\\\"email\\\":\\\"<ADD STRING VALUE>\\\",\\\"password\\\":\\\"<ADD STRING VALUE>\\\"}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
         - lang: Java_okhttp
           source: |-
             OkHttpClient client = new OkHttpClient();
@@ -279,7 +279,7 @@ paths:
             MediaType mediaType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(mediaType, "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}");
             Request request = new Request.Builder()
-              .url("https://cleanse.studio/api/v1/auth")
+              .url("https://analyzemail.com/api/v1/auth")
               .post(body)
               .addHeader("content-type", "application/json")
               .build();
@@ -287,7 +287,7 @@ paths:
             Response response = client.newCall(request).execute();
         - lang: Java_unirest
           source: |-
-            HttpResponse<String> response = Unirest.post("https://cleanse.studio/api/v1/auth")
+            HttpResponse<String> response = Unirest.post("https://analyzemail.com/api/v1/auth")
               .header("content-type", "application/json")
               .body("{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}")
               .asString();
@@ -296,7 +296,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://cleanse.studio/api/v1/auth",
+              "url": "https://analyzemail.com/api/v1/auth",
               "method": "POST",
               "headers": {
                 "content-type": "application/json"
@@ -324,7 +324,7 @@ paths:
               }
             });
 
-            xhr.open("POST", "https://cleanse.studio/api/v1/auth");
+            xhr.open("POST", "https://analyzemail.com/api/v1/auth");
             xhr.setRequestHeader("content-type", "application/json");
 
             xhr.send(data);
@@ -334,7 +334,7 @@ paths:
 
             var options = {
               "method": "POST",
-              "hostname": "cleanse.studio",
+              "hostname": "analyzemail.com",
               "port": null,
               "path": "/api/v1/auth",
               "headers": {
@@ -362,7 +362,7 @@ paths:
             var request = require("request");
 
             var options = { method: 'POST',
-              url: 'https://cleanse.studio/api/v1/auth',
+              url: 'https://analyzemail.com/api/v1/auth',
               headers: { 'content-type': 'application/json' },
               body:
                { email: '<ADD STRING VALUE>', password: '<ADD STRING VALUE>' },
@@ -377,7 +377,7 @@ paths:
           source: |
             var unirest = require("unirest");
 
-            var req = unirest("POST", "https://cleanse.studio/api/v1/auth");
+            var req = unirest("POST", "https://analyzemail.com/api/v1/auth");
 
             req.headers({
               "content-type": "application/json"
@@ -404,7 +404,7 @@ paths:
 
             NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
 
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/auth"]
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/auth"]
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                timeoutInterval:10.0];
             [request setHTTPMethod:@"POST"];
@@ -428,7 +428,7 @@ paths:
             open Cohttp
             open Lwt
 
-            let uri = Uri.of_string "https://cleanse.studio/api/v1/auth" in
+            let uri = Uri.of_string "https://analyzemail.com/api/v1/auth" in
             let headers = Header.add (Header.init ()) "content-type" "application/json" in
             let body = Cohttp_lwt_body.of_string "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}" in
 
@@ -442,7 +442,7 @@ paths:
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://cleanse.studio/api/v1/auth",
+              CURLOPT_URL => "https://analyzemail.com/api/v1/auth",
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
@@ -470,7 +470,7 @@ paths:
             <?php
 
             $request = new HttpRequest();
-            $request->setUrl('https://cleanse.studio/api/v1/auth');
+            $request->setUrl('https://analyzemail.com/api/v1/auth');
             $request->setMethod(HTTP_METH_POST);
 
             $request->setHeaders(array(
@@ -496,7 +496,7 @@ paths:
             $body = new http\Message\Body;
             $body->append('{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}');
 
-            $request->setRequestUrl('https://cleanse.studio/api/v1/auth');
+            $request->setRequestUrl('https://analyzemail.com/api/v1/auth');
             $request->setRequestMethod('POST');
             $request->setBody($body);
 
@@ -512,7 +512,7 @@ paths:
           source: |-
             import http.client
 
-            conn = http.client.HTTPSConnection("cleanse.studio")
+            conn = http.client.HTTPSConnection("analyzemail.com")
 
             payload = "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}"
 
@@ -528,7 +528,7 @@ paths:
           source: |-
             import requests
 
-            url = "https://cleanse.studio/api/v1/auth"
+            url = "https://analyzemail.com/api/v1/auth"
 
             payload = "{\"email\":\"<ADD STRING VALUE>\",\"password\":\"<ADD STRING VALUE>\"}"
             headers = {'content-type': 'application/json'}
@@ -541,7 +541,7 @@ paths:
             require 'uri'
             require 'net/http'
 
-            url = URI("https://cleanse.studio/api/v1/auth")
+            url = URI("https://analyzemail.com/api/v1/auth")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -556,13 +556,13 @@ paths:
         - lang: Shell_curl
           source: |-
             curl --request POST \
-              --url https://cleanse.studio/api/v1/auth \
+              --url https://analyzemail.com/api/v1/auth \
               --header 'content-type: application/json' \
               --data '{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}'
         - lang: Shell_httpie
           source: |-
             echo '{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}' |  \
-              http POST https://cleanse.studio/api/v1/auth \
+              http POST https://analyzemail.com/api/v1/auth \
               content-type:application/json
         - lang: Shell_wget
           source: |-
@@ -571,7 +571,7 @@ paths:
               --header 'content-type: application/json' \
               --body-data '{"email":"<ADD STRING VALUE>","password":"<ADD STRING VALUE>"}' \
               --output-document \
-              - https://cleanse.studio/api/v1/auth
+              - https://analyzemail.com/api/v1/auth
         - lang: Swift_nsurlsession
           source: |-
             import Foundation
@@ -584,7 +584,7 @@ paths:
 
             let postData = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: nil)
 
-            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/auth")!,
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/auth")!,
                                                     cachePolicy: .UseProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.HTTPMethod = "POST"
@@ -645,7 +645,7 @@ paths:
             CURL *hnd = curl_easy_init();
 
             curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE");
 
             struct curl_slist *headers = NULL;
             headers = curl_slist_append(headers, "content-type: application/json");
@@ -656,13 +656,13 @@ paths:
             CURLcode ret = curl_easy_perform(hnd);
         - lang: Csharp_restsharp
           source: |-
-            var client = new RestClient("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE");
+            var client = new RestClient("https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE");
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
             request.AddParameter("application/json", "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
         - lang: Go_native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE\"\n\n\tpayload := strings.NewReader(\"{\\\"filename\\\":\\\"<ADD STRING VALUE>\\\",\\\"emails\\\":[\\\"<ADD STRING VALUE>\\\"]}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE\"\n\n\tpayload := strings.NewReader(\"{\\\"filename\\\":\\\"<ADD STRING VALUE>\\\",\\\"emails\\\":[\\\"<ADD STRING VALUE>\\\"]}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
         - lang: Java_okhttp
           source: |-
             OkHttpClient client = new OkHttpClient();
@@ -670,7 +670,7 @@ paths:
             MediaType mediaType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(mediaType, "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}");
             Request request = new Request.Builder()
-              .url("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")
+              .url("https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE")
               .post(body)
               .addHeader("content-type", "application/json")
               .build();
@@ -678,7 +678,7 @@ paths:
             Response response = client.newCall(request).execute();
         - lang: Java_unirest
           source: |-
-            HttpResponse<String> response = Unirest.post("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")
+            HttpResponse<String> response = Unirest.post("https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE")
               .header("content-type", "application/json")
               .body("{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}")
               .asString();
@@ -687,7 +687,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE",
+              "url": "https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE",
               "method": "POST",
               "headers": {
                 "content-type": "application/json"
@@ -717,7 +717,7 @@ paths:
               }
             });
 
-            xhr.open("POST", "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE");
+            xhr.open("POST", "https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE");
             xhr.setRequestHeader("content-type", "application/json");
 
             xhr.send(data);
@@ -727,7 +727,7 @@ paths:
 
             var options = {
               "method": "POST",
-              "hostname": "cleanse.studio",
+              "hostname": "analyzemail.com",
               "port": null,
               "path": "/api/v1/list?username=SOME_STRING_VALUE",
               "headers": {
@@ -756,7 +756,7 @@ paths:
             var request = require("request");
 
             var options = { method: 'POST',
-              url: 'https://cleanse.studio/api/v1/list',
+              url: 'https://analyzemail.com/api/v1/list',
               qs: { username: 'SOME_STRING_VALUE' },
               headers: { 'content-type': 'application/json' },
               body:
@@ -773,7 +773,7 @@ paths:
           source: |
             var unirest = require("unirest");
 
-            var req = unirest("POST", "https://cleanse.studio/api/v1/list");
+            var req = unirest("POST", "https://analyzemail.com/api/v1/list");
 
             req.query({
               "username": "SOME_STRING_VALUE"
@@ -806,7 +806,7 @@ paths:
 
             NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
 
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE"]
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE"]
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                timeoutInterval:10.0];
             [request setHTTPMethod:@"POST"];
@@ -830,7 +830,7 @@ paths:
             open Cohttp
             open Lwt
 
-            let uri = Uri.of_string "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE" in
+            let uri = Uri.of_string "https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE" in
             let headers = Header.add (Header.init ()) "content-type" "application/json" in
             let body = Cohttp_lwt_body.of_string "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}" in
 
@@ -844,7 +844,7 @@ paths:
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE",
+              CURLOPT_URL => "https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE",
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
@@ -872,7 +872,7 @@ paths:
             <?php
 
             $request = new HttpRequest();
-            $request->setUrl('https://cleanse.studio/api/v1/list');
+            $request->setUrl('https://analyzemail.com/api/v1/list');
             $request->setMethod(HTTP_METH_POST);
 
             $request->setQueryData(array(
@@ -902,7 +902,7 @@ paths:
             $body = new http\Message\Body;
             $body->append('{"filename":"<ADD STRING VALUE>","emails":["<ADD STRING VALUE>"]}');
 
-            $request->setRequestUrl('https://cleanse.studio/api/v1/list');
+            $request->setRequestUrl('https://analyzemail.com/api/v1/list');
             $request->setRequestMethod('POST');
             $request->setBody($body);
 
@@ -922,7 +922,7 @@ paths:
           source: |-
             import http.client
 
-            conn = http.client.HTTPSConnection("cleanse.studio")
+            conn = http.client.HTTPSConnection("analyzemail.com")
 
             payload = "{\"filename\":\"<ADD STRING VALUE>\",\"emails\":[\"<ADD STRING VALUE>\"]}"
 
@@ -938,7 +938,7 @@ paths:
           source: |-
             import requests
 
-            url = "https://cleanse.studio/api/v1/list"
+            url = "https://analyzemail.com/api/v1/list"
 
             querystring = {"username":"SOME_STRING_VALUE"}
 
@@ -953,7 +953,7 @@ paths:
             require 'uri'
             require 'net/http'
 
-            url = URI("https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")
+            url = URI("https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -968,13 +968,13 @@ paths:
         - lang: Shell_curl
           source: |-
             curl --request POST \
-              --url 'https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE' \
+              --url 'https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE' \
               --header 'content-type: application/json' \
               --data '{"filename":"<ADD STRING VALUE>","emails":["<ADD STRING VALUE>"]}'
         - lang: Shell_httpie
           source: |-
             echo '{"filename":"<ADD STRING VALUE>","emails":["<ADD STRING VALUE>"]}' |  \
-              http POST 'https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE' \
+              http POST 'https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE' \
               content-type:application/json
         - lang: Shell_wget
           source: |-
@@ -983,7 +983,7 @@ paths:
               --header 'content-type: application/json' \
               --body-data '{"filename":"<ADD STRING VALUE>","emails":["<ADD STRING VALUE>"]}' \
               --output-document \
-              - 'https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE'
+              - 'https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE'
         - lang: Swift_nsurlsession
           source: |-
             import Foundation
@@ -996,7 +996,7 @@ paths:
 
             let postData = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: nil)
 
-            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list?username=SOME_STRING_VALUE")!,
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/list?username=SOME_STRING_VALUE")!,
                                                     cachePolicy: .UseProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.HTTPMethod = "POST"
@@ -1056,7 +1056,7 @@ paths:
             CURL *hnd = curl_easy_init();
 
             curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
 
             struct curl_slist *headers = NULL;
             headers = curl_slist_append(headers, "content-type: application/json");
@@ -1065,18 +1065,18 @@ paths:
             CURLcode ret = curl_easy_perform(hnd);
         - lang: Csharp_restsharp
           source: |-
-            var client = new RestClient("https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
+            var client = new RestClient("https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
             var request = new RestRequest(Method.GET);
             request.AddHeader("content-type", "application/json");
             IRestResponse response = client.Execute(request);
         - lang: Go_native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
         - lang: Java_okhttp
           source: |-
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
-              .url("https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")
+              .url("https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")
               .get()
               .addHeader("content-type", "application/json")
               .build();
@@ -1084,7 +1084,7 @@ paths:
             Response response = client.newCall(request).execute();
         - lang: Java_unirest
           source: |-
-            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")
+            HttpResponse<String> response = Unirest.get("https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")
               .header("content-type", "application/json")
               .asString();
         - lang: Javascript_jquery
@@ -1092,7 +1092,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE",
+              "url": "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE",
               "method": "GET",
               "headers": {
                 "content-type": "application/json"
@@ -1115,7 +1115,7 @@ paths:
               }
             });
 
-            xhr.open("GET", "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
+            xhr.open("GET", "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE");
             xhr.setRequestHeader("content-type", "application/json");
 
             xhr.send(data);
@@ -1125,7 +1125,7 @@ paths:
 
             var options = {
               "method": "GET",
-              "hostname": "cleanse.studio",
+              "hostname": "analyzemail.com",
               "port": null,
               "path": "/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE",
               "headers": {
@@ -1152,7 +1152,7 @@ paths:
             var request = require("request");
 
             var options = { method: 'GET',
-              url: 'https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D',
+              url: 'https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D',
               qs: { username: 'SOME_STRING_VALUE' },
               headers: { 'content-type': 'application/json' } };
 
@@ -1165,7 +1165,7 @@ paths:
           source: |
             var unirest = require("unirest");
 
-            var req = unirest("GET", "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D");
+            var req = unirest("GET", "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D");
 
             req.query({
               "username": "SOME_STRING_VALUE"
@@ -1187,7 +1187,7 @@ paths:
 
             NSDictionary *headers = @{ @"content-type": @"application/json" };
 
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE"]
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE"]
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                timeoutInterval:10.0];
             [request setHTTPMethod:@"GET"];
@@ -1210,7 +1210,7 @@ paths:
             open Cohttp
             open Lwt
 
-            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE" in
+            let uri = Uri.of_string "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE" in
             let headers = Header.add (Header.init ()) "content-type" "application/json" in
 
             Client.call ~headers `GET uri
@@ -1223,7 +1223,7 @@ paths:
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE",
+              CURLOPT_URL => "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE",
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
@@ -1250,7 +1250,7 @@ paths:
             <?php
 
             $request = new HttpRequest();
-            $request->setUrl('https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D');
+            $request->setUrl('https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D');
             $request->setMethod(HTTP_METH_GET);
 
             $request->setQueryData(array(
@@ -1275,7 +1275,7 @@ paths:
             $client = new http\Client;
             $request = new http\Client\Request;
 
-            $request->setRequestUrl('https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D');
+            $request->setRequestUrl('https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D');
             $request->setRequestMethod('GET');
             $request->setQuery(new http\QueryString(array(
               'username' => 'SOME_STRING_VALUE'
@@ -1293,7 +1293,7 @@ paths:
           source: |-
             import http.client
 
-            conn = http.client.HTTPSConnection("cleanse.studio")
+            conn = http.client.HTTPSConnection("analyzemail.com")
 
             headers = { 'content-type': "application/json" }
 
@@ -1307,7 +1307,7 @@ paths:
           source: |-
             import requests
 
-            url = "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D"
+            url = "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D"
 
             querystring = {"username":"SOME_STRING_VALUE"}
 
@@ -1321,7 +1321,7 @@ paths:
             require 'uri'
             require 'net/http'
 
-            url = URI("https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")
+            url = URI("https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -1335,11 +1335,11 @@ paths:
         - lang: Shell_curl
           source: |-
             curl --request GET \
-              --url 'https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE' \
+              --url 'https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE' \
               --header 'content-type: application/json'
         - lang: Shell_httpie
           source: |-
-            http GET 'https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE' \
+            http GET 'https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE' \
               content-type:application/json
         - lang: Shell_wget
           source: |-
@@ -1347,14 +1347,14 @@ paths:
               --method GET \
               --header 'content-type: application/json' \
               --output-document \
-              - 'https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE'
+              - 'https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE'
         - lang: Swift_nsurlsession
           source: |-
             import Foundation
 
             let headers = ["content-type": "application/json"]
 
-            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")!,
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/list/check_email/%7Bemail%7D?username=SOME_STRING_VALUE")!,
                                                     cachePolicy: .UseProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.HTTPMethod = "GET"
@@ -1412,7 +1412,7 @@ paths:
             CURL *hnd = curl_easy_init();
 
             curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "DELETE");
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
 
             struct curl_slist *headers = NULL;
             headers = curl_slist_append(headers, "content-type: application/json");
@@ -1421,18 +1421,18 @@ paths:
             CURLcode ret = curl_easy_perform(hnd);
         - lang: Csharp_restsharp
           source: |-
-            var client = new RestClient("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            var client = new RestClient("https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
             var request = new RestRequest(Method.DELETE);
             request.AddHeader("content-type", "application/json");
             IRestResponse response = client.Execute(request);
         - lang: Go_native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"DELETE\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"DELETE\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
         - lang: Java_okhttp
           source: |-
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
-              .url("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+              .url("https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
               .delete(null)
               .addHeader("content-type", "application/json")
               .build();
@@ -1440,7 +1440,7 @@ paths:
             Response response = client.newCall(request).execute();
         - lang: Java_unirest
           source: |-
-            HttpResponse<String> response = Unirest.delete("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+            HttpResponse<String> response = Unirest.delete("https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
               .header("content-type", "application/json")
               .asString();
         - lang: Javascript_jquery
@@ -1448,7 +1448,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              "url": "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
               "method": "DELETE",
               "headers": {
                 "content-type": "application/json"
@@ -1471,7 +1471,7 @@ paths:
               }
             });
 
-            xhr.open("DELETE", "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            xhr.open("DELETE", "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
             xhr.setRequestHeader("content-type", "application/json");
 
             xhr.send(data);
@@ -1481,7 +1481,7 @@ paths:
 
             var options = {
               "method": "DELETE",
-              "hostname": "cleanse.studio",
+              "hostname": "analyzemail.com",
               "port": null,
               "path": "/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
               "headers": {
@@ -1508,7 +1508,7 @@ paths:
             var request = require("request");
 
             var options = { method: 'DELETE',
-              url: 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D',
+              url: 'https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D',
               qs: { username: 'SOME_STRING_VALUE' },
               headers: { 'content-type': 'application/json' } };
 
@@ -1521,7 +1521,7 @@ paths:
           source: |
             var unirest = require("unirest");
 
-            var req = unirest("DELETE", "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D");
+            var req = unirest("DELETE", "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D");
 
             req.query({
               "username": "SOME_STRING_VALUE"
@@ -1543,7 +1543,7 @@ paths:
 
             NSDictionary *headers = @{ @"content-type": @"application/json" };
 
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE"]
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE"]
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                timeoutInterval:10.0];
             [request setHTTPMethod:@"DELETE"];
@@ -1566,7 +1566,7 @@ paths:
             open Cohttp
             open Lwt
 
-            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE" in
+            let uri = Uri.of_string "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE" in
             let headers = Header.add (Header.init ()) "content-type" "application/json" in
 
             Client.call ~headers `DELETE uri
@@ -1579,7 +1579,7 @@ paths:
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              CURLOPT_URL => "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
@@ -1606,7 +1606,7 @@ paths:
             <?php
 
             $request = new HttpRequest();
-            $request->setUrl('https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D');
+            $request->setUrl('https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D');
             $request->setMethod(HTTP_METH_DELETE);
 
             $request->setQueryData(array(
@@ -1631,7 +1631,7 @@ paths:
             $client = new http\Client;
             $request = new http\Client\Request;
 
-            $request->setRequestUrl('https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D');
+            $request->setRequestUrl('https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D');
             $request->setRequestMethod('DELETE');
             $request->setQuery(new http\QueryString(array(
               'username' => 'SOME_STRING_VALUE'
@@ -1649,7 +1649,7 @@ paths:
           source: |-
             import http.client
 
-            conn = http.client.HTTPSConnection("cleanse.studio")
+            conn = http.client.HTTPSConnection("analyzemail.com")
 
             headers = { 'content-type': "application/json" }
 
@@ -1663,7 +1663,7 @@ paths:
           source: |-
             import requests
 
-            url = "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D"
+            url = "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D"
 
             querystring = {"username":"SOME_STRING_VALUE"}
 
@@ -1677,7 +1677,7 @@ paths:
             require 'uri'
             require 'net/http'
 
-            url = URI("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+            url = URI("https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -1691,11 +1691,11 @@ paths:
         - lang: Shell_curl
           source: |-
             curl --request DELETE \
-              --url 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
+              --url 'https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
               --header 'content-type: application/json'
         - lang: Shell_httpie
           source: |-
-            http DELETE 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
+            http DELETE 'https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
               content-type:application/json
         - lang: Shell_wget
           source: |-
@@ -1703,14 +1703,14 @@ paths:
               --method DELETE \
               --header 'content-type: application/json' \
               --output-document \
-              - 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE'
+              - 'https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE'
         - lang: Swift_nsurlsession
           source: |-
             import Foundation
 
             let headers = ["content-type": "application/json"]
 
-            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")!,
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")!,
                                                     cachePolicy: .UseProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.HTTPMethod = "DELETE"
@@ -1762,7 +1762,7 @@ paths:
             CURL *hnd = curl_easy_init();
 
             curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
 
             struct curl_slist *headers = NULL;
             headers = curl_slist_append(headers, "content-type: application/json");
@@ -1771,18 +1771,18 @@ paths:
             CURLcode ret = curl_easy_perform(hnd);
         - lang: Csharp_restsharp
           source: |-
-            var client = new RestClient("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            var client = new RestClient("https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
             var request = new RestRequest(Method.GET);
             request.AddHeader("content-type", "application/json");
             IRestResponse response = client.Execute(request);
         - lang: Go_native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
         - lang: Java_okhttp
           source: |-
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
-              .url("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+              .url("https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
               .get()
               .addHeader("content-type", "application/json")
               .build();
@@ -1790,7 +1790,7 @@ paths:
             Response response = client.newCall(request).execute();
         - lang: Java_unirest
           source: |-
-            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+            HttpResponse<String> response = Unirest.get("https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
               .header("content-type", "application/json")
               .asString();
         - lang: Javascript_jquery
@@ -1798,7 +1798,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              "url": "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
               "method": "GET",
               "headers": {
                 "content-type": "application/json"
@@ -1821,7 +1821,7 @@ paths:
               }
             });
 
-            xhr.open("GET", "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
+            xhr.open("GET", "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE");
             xhr.setRequestHeader("content-type", "application/json");
 
             xhr.send(data);
@@ -1831,7 +1831,7 @@ paths:
 
             var options = {
               "method": "GET",
-              "hostname": "cleanse.studio",
+              "hostname": "analyzemail.com",
               "port": null,
               "path": "/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
               "headers": {
@@ -1858,7 +1858,7 @@ paths:
             var request = require("request");
 
             var options = { method: 'GET',
-              url: 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D',
+              url: 'https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D',
               qs: { username: 'SOME_STRING_VALUE' },
               headers: { 'content-type': 'application/json' } };
 
@@ -1871,7 +1871,7 @@ paths:
           source: |
             var unirest = require("unirest");
 
-            var req = unirest("GET", "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D");
+            var req = unirest("GET", "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D");
 
             req.query({
               "username": "SOME_STRING_VALUE"
@@ -1893,7 +1893,7 @@ paths:
 
             NSDictionary *headers = @{ @"content-type": @"application/json" };
 
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE"]
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE"]
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                timeoutInterval:10.0];
             [request setHTTPMethod:@"GET"];
@@ -1916,7 +1916,7 @@ paths:
             open Cohttp
             open Lwt
 
-            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE" in
+            let uri = Uri.of_string "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE" in
             let headers = Header.add (Header.init ()) "content-type" "application/json" in
 
             Client.call ~headers `GET uri
@@ -1929,7 +1929,7 @@ paths:
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
+              CURLOPT_URL => "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE",
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
@@ -1956,7 +1956,7 @@ paths:
             <?php
 
             $request = new HttpRequest();
-            $request->setUrl('https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D');
+            $request->setUrl('https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D');
             $request->setMethod(HTTP_METH_GET);
 
             $request->setQueryData(array(
@@ -1981,7 +1981,7 @@ paths:
             $client = new http\Client;
             $request = new http\Client\Request;
 
-            $request->setRequestUrl('https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D');
+            $request->setRequestUrl('https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D');
             $request->setRequestMethod('GET');
             $request->setQuery(new http\QueryString(array(
               'username' => 'SOME_STRING_VALUE'
@@ -1999,7 +1999,7 @@ paths:
           source: |-
             import http.client
 
-            conn = http.client.HTTPSConnection("cleanse.studio")
+            conn = http.client.HTTPSConnection("analyzemail.com")
 
             headers = { 'content-type': "application/json" }
 
@@ -2013,7 +2013,7 @@ paths:
           source: |-
             import requests
 
-            url = "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D"
+            url = "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D"
 
             querystring = {"username":"SOME_STRING_VALUE"}
 
@@ -2027,7 +2027,7 @@ paths:
             require 'uri'
             require 'net/http'
 
-            url = URI("https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
+            url = URI("https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -2041,11 +2041,11 @@ paths:
         - lang: Shell_curl
           source: |-
             curl --request GET \
-              --url 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
+              --url 'https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
               --header 'content-type: application/json'
         - lang: Shell_httpie
           source: |-
-            http GET 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
+            http GET 'https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE' \
               content-type:application/json
         - lang: Shell_wget
           source: |-
@@ -2053,14 +2053,14 @@ paths:
               --method GET \
               --header 'content-type: application/json' \
               --output-document \
-              - 'https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE'
+              - 'https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE'
         - lang: Swift_nsurlsession
           source: |-
             import Foundation
 
             let headers = ["content-type": "application/json"]
 
-            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")!,
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/list/cleaned/%7Blist_name%7D?username=SOME_STRING_VALUE")!,
                                                     cachePolicy: .UseProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.HTTPMethod = "GET"
@@ -2118,7 +2118,7 @@ paths:
             CURL *hnd = curl_easy_init();
 
             curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE");
 
             struct curl_slist *headers = NULL;
             headers = curl_slist_append(headers, "content-type: application/json");
@@ -2127,18 +2127,18 @@ paths:
             CURLcode ret = curl_easy_perform(hnd);
         - lang: Csharp_restsharp
           source: |-
-            var client = new RestClient("https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            var client = new RestClient("https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE");
             var request = new RestRequest(Method.GET);
             request.AddHeader("content-type", "application/json");
             IRestResponse response = client.Execute(request);
         - lang: Go_native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
         - lang: Java_okhttp
           source: |-
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
-              .url("https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
+              .url("https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
               .get()
               .addHeader("content-type", "application/json")
               .build();
@@ -2146,7 +2146,7 @@ paths:
             Response response = client.newCall(request).execute();
         - lang: Java_unirest
           source: |-
-            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
+            HttpResponse<String> response = Unirest.get("https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
               .header("content-type", "application/json")
               .asString();
         - lang: Javascript_jquery
@@ -2154,7 +2154,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              "url": "https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
               "method": "GET",
               "headers": {
                 "content-type": "application/json"
@@ -2177,7 +2177,7 @@ paths:
               }
             });
 
-            xhr.open("GET", "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            xhr.open("GET", "https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE");
             xhr.setRequestHeader("content-type", "application/json");
 
             xhr.send(data);
@@ -2187,7 +2187,7 @@ paths:
 
             var options = {
               "method": "GET",
-              "hostname": "cleanse.studio",
+              "hostname": "analyzemail.com",
               "port": null,
               "path": "/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
               "headers": {
@@ -2214,7 +2214,7 @@ paths:
             var request = require("request");
 
             var options = { method: 'GET',
-              url: 'https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D',
+              url: 'https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D',
               qs: { username: 'SOME_STRING_VALUE' },
               headers: { 'content-type': 'application/json' } };
 
@@ -2227,7 +2227,7 @@ paths:
           source: |
             var unirest = require("unirest");
 
-            var req = unirest("GET", "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D");
+            var req = unirest("GET", "https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D");
 
             req.query({
               "username": "SOME_STRING_VALUE"
@@ -2249,7 +2249,7 @@ paths:
 
             NSDictionary *headers = @{ @"content-type": @"application/json" };
 
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE"]
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE"]
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                timeoutInterval:10.0];
             [request setHTTPMethod:@"GET"];
@@ -2272,7 +2272,7 @@ paths:
             open Cohttp
             open Lwt
 
-            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE" in
+            let uri = Uri.of_string "https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE" in
             let headers = Header.add (Header.init ()) "content-type" "application/json" in
 
             Client.call ~headers `GET uri
@@ -2285,7 +2285,7 @@ paths:
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              CURLOPT_URL => "https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE",
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
@@ -2312,7 +2312,7 @@ paths:
             <?php
 
             $request = new HttpRequest();
-            $request->setUrl('https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D');
+            $request->setUrl('https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D');
             $request->setMethod(HTTP_METH_GET);
 
             $request->setQueryData(array(
@@ -2337,7 +2337,7 @@ paths:
             $client = new http\Client;
             $request = new http\Client\Request;
 
-            $request->setRequestUrl('https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D');
+            $request->setRequestUrl('https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D');
             $request->setRequestMethod('GET');
             $request->setQuery(new http\QueryString(array(
               'username' => 'SOME_STRING_VALUE'
@@ -2355,7 +2355,7 @@ paths:
           source: |-
             import http.client
 
-            conn = http.client.HTTPSConnection("cleanse.studio")
+            conn = http.client.HTTPSConnection("analyzemail.com")
 
             headers = { 'content-type': "application/json" }
 
@@ -2369,7 +2369,7 @@ paths:
           source: |-
             import requests
 
-            url = "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D"
+            url = "https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D"
 
             querystring = {"username":"SOME_STRING_VALUE"}
 
@@ -2383,7 +2383,7 @@ paths:
             require 'uri'
             require 'net/http'
 
-            url = URI("https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
+            url = URI("https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -2397,11 +2397,11 @@ paths:
         - lang: Shell_curl
           source: |-
             curl --request GET \
-              --url 'https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE' \
+              --url 'https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE' \
               --header 'content-type: application/json'
         - lang: Shell_httpie
           source: |-
-            http GET 'https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE' \
+            http GET 'https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE' \
               content-type:application/json
         - lang: Shell_wget
           source: |-
@@ -2409,14 +2409,14 @@ paths:
               --method GET \
               --header 'content-type: application/json' \
               --output-document \
-              - 'https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE'
+              - 'https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE'
         - lang: Swift_nsurlsession
           source: |-
             import Foundation
 
             let headers = ["content-type": "application/json"]
 
-            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")!,
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/list/cleanse/%7Blist_id%7D?username=SOME_STRING_VALUE")!,
                                                     cachePolicy: .UseProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.HTTPMethod = "GET"
@@ -2474,7 +2474,7 @@ paths:
             CURL *hnd = curl_easy_init();
 
             curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "DELETE");
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE");
 
             struct curl_slist *headers = NULL;
             headers = curl_slist_append(headers, "content-type: application/json");
@@ -2483,18 +2483,18 @@ paths:
             CURLcode ret = curl_easy_perform(hnd);
         - lang: Csharp_restsharp
           source: |-
-            var client = new RestClient("https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            var client = new RestClient("https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE");
             var request = new RestRequest(Method.DELETE);
             request.AddHeader("content-type", "application/json");
             IRestResponse response = client.Execute(request);
         - lang: Go_native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"DELETE\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"DELETE\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
         - lang: Java_okhttp
           source: |-
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
-              .url("https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
+              .url("https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
               .delete(null)
               .addHeader("content-type", "application/json")
               .build();
@@ -2502,7 +2502,7 @@ paths:
             Response response = client.newCall(request).execute();
         - lang: Java_unirest
           source: |-
-            HttpResponse<String> response = Unirest.delete("https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
+            HttpResponse<String> response = Unirest.delete("https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
               .header("content-type", "application/json")
               .asString();
         - lang: Javascript_jquery
@@ -2510,7 +2510,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              "url": "https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE",
               "method": "DELETE",
               "headers": {
                 "content-type": "application/json"
@@ -2533,7 +2533,7 @@ paths:
               }
             });
 
-            xhr.open("DELETE", "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE");
+            xhr.open("DELETE", "https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE");
             xhr.setRequestHeader("content-type", "application/json");
 
             xhr.send(data);
@@ -2543,7 +2543,7 @@ paths:
 
             var options = {
               "method": "DELETE",
-              "hostname": "cleanse.studio",
+              "hostname": "analyzemail.com",
               "port": null,
               "path": "/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE",
               "headers": {
@@ -2570,7 +2570,7 @@ paths:
             var request = require("request");
 
             var options = { method: 'DELETE',
-              url: 'https://cleanse.studio/api/v1/list/%7Blist_id%7D',
+              url: 'https://analyzemail.com/api/v1/list/%7Blist_id%7D',
               qs: { username: 'SOME_STRING_VALUE' },
               headers: { 'content-type': 'application/json' } };
 
@@ -2583,7 +2583,7 @@ paths:
           source: |
             var unirest = require("unirest");
 
-            var req = unirest("DELETE", "https://cleanse.studio/api/v1/list/%7Blist_id%7D");
+            var req = unirest("DELETE", "https://analyzemail.com/api/v1/list/%7Blist_id%7D");
 
             req.query({
               "username": "SOME_STRING_VALUE"
@@ -2605,7 +2605,7 @@ paths:
 
             NSDictionary *headers = @{ @"content-type": @"application/json" };
 
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE"]
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE"]
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                timeoutInterval:10.0];
             [request setHTTPMethod:@"DELETE"];
@@ -2628,7 +2628,7 @@ paths:
             open Cohttp
             open Lwt
 
-            let uri = Uri.of_string "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE" in
+            let uri = Uri.of_string "https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE" in
             let headers = Header.add (Header.init ()) "content-type" "application/json" in
 
             Client.call ~headers `DELETE uri
@@ -2641,7 +2641,7 @@ paths:
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE",
+              CURLOPT_URL => "https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE",
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
@@ -2668,7 +2668,7 @@ paths:
             <?php
 
             $request = new HttpRequest();
-            $request->setUrl('https://cleanse.studio/api/v1/list/%7Blist_id%7D');
+            $request->setUrl('https://analyzemail.com/api/v1/list/%7Blist_id%7D');
             $request->setMethod(HTTP_METH_DELETE);
 
             $request->setQueryData(array(
@@ -2693,7 +2693,7 @@ paths:
             $client = new http\Client;
             $request = new http\Client\Request;
 
-            $request->setRequestUrl('https://cleanse.studio/api/v1/list/%7Blist_id%7D');
+            $request->setRequestUrl('https://analyzemail.com/api/v1/list/%7Blist_id%7D');
             $request->setRequestMethod('DELETE');
             $request->setQuery(new http\QueryString(array(
               'username' => 'SOME_STRING_VALUE'
@@ -2711,7 +2711,7 @@ paths:
           source: |-
             import http.client
 
-            conn = http.client.HTTPSConnection("cleanse.studio")
+            conn = http.client.HTTPSConnection("analyzemail.com")
 
             headers = { 'content-type': "application/json" }
 
@@ -2725,7 +2725,7 @@ paths:
           source: |-
             import requests
 
-            url = "https://cleanse.studio/api/v1/list/%7Blist_id%7D"
+            url = "https://analyzemail.com/api/v1/list/%7Blist_id%7D"
 
             querystring = {"username":"SOME_STRING_VALUE"}
 
@@ -2739,7 +2739,7 @@ paths:
             require 'uri'
             require 'net/http'
 
-            url = URI("https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
+            url = URI("https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -2753,11 +2753,11 @@ paths:
         - lang: Shell_curl
           source: |-
             curl --request DELETE \
-              --url 'https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE' \
+              --url 'https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE' \
               --header 'content-type: application/json'
         - lang: Shell_httpie
           source: |-
-            http DELETE 'https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE' \
+            http DELETE 'https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE' \
               content-type:application/json
         - lang: Shell_wget
           source: |-
@@ -2765,14 +2765,14 @@ paths:
               --method DELETE \
               --header 'content-type: application/json' \
               --output-document \
-              - 'https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE'
+              - 'https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE'
         - lang: Swift_nsurlsession
           source: |-
             import Foundation
 
             let headers = ["content-type": "application/json"]
 
-            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")!,
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/list/%7Blist_id%7D?username=SOME_STRING_VALUE")!,
                                                     cachePolicy: .UseProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.HTTPMethod = "DELETE"
@@ -2817,7 +2817,7 @@ paths:
             CURL *hnd = curl_easy_init();
 
             curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE");
 
             struct curl_slist *headers = NULL;
             headers = curl_slist_append(headers, "content-type: application/json");
@@ -2826,18 +2826,18 @@ paths:
             CURLcode ret = curl_easy_perform(hnd);
         - lang: Csharp_restsharp
           source: |-
-            var client = new RestClient("https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE");
+            var client = new RestClient("https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE");
             var request = new RestRequest(Method.GET);
             request.AddHeader("content-type", "application/json");
             IRestResponse response = client.Execute(request);
         - lang: Go_native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
         - lang: Java_okhttp
           source: |-
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
-              .url("https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE")
+              .url("https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE")
               .get()
               .addHeader("content-type", "application/json")
               .build();
@@ -2845,7 +2845,7 @@ paths:
             Response response = client.newCall(request).execute();
         - lang: Java_unirest
           source: |-
-            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE")
+            HttpResponse<String> response = Unirest.get("https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE")
               .header("content-type", "application/json")
               .asString();
         - lang: Javascript_jquery
@@ -2853,7 +2853,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE",
+              "url": "https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE",
               "method": "GET",
               "headers": {
                 "content-type": "application/json"
@@ -2876,7 +2876,7 @@ paths:
               }
             });
 
-            xhr.open("GET", "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE");
+            xhr.open("GET", "https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE");
             xhr.setRequestHeader("content-type", "application/json");
 
             xhr.send(data);
@@ -2886,7 +2886,7 @@ paths:
 
             var options = {
               "method": "GET",
-              "hostname": "cleanse.studio",
+              "hostname": "analyzemail.com",
               "port": null,
               "path": "/api/v1/lists?username=SOME_STRING_VALUE",
               "headers": {
@@ -2913,7 +2913,7 @@ paths:
             var request = require("request");
 
             var options = { method: 'GET',
-              url: 'https://cleanse.studio/api/v1/lists',
+              url: 'https://analyzemail.com/api/v1/lists',
               qs: { username: 'SOME_STRING_VALUE' },
               headers: { 'content-type': 'application/json' } };
 
@@ -2926,7 +2926,7 @@ paths:
           source: |
             var unirest = require("unirest");
 
-            var req = unirest("GET", "https://cleanse.studio/api/v1/lists");
+            var req = unirest("GET", "https://analyzemail.com/api/v1/lists");
 
             req.query({
               "username": "SOME_STRING_VALUE"
@@ -2948,7 +2948,7 @@ paths:
 
             NSDictionary *headers = @{ @"content-type": @"application/json" };
 
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE"]
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE"]
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                timeoutInterval:10.0];
             [request setHTTPMethod:@"GET"];
@@ -2971,7 +2971,7 @@ paths:
             open Cohttp
             open Lwt
 
-            let uri = Uri.of_string "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE" in
+            let uri = Uri.of_string "https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE" in
             let headers = Header.add (Header.init ()) "content-type" "application/json" in
 
             Client.call ~headers `GET uri
@@ -2984,7 +2984,7 @@ paths:
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE",
+              CURLOPT_URL => "https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE",
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
@@ -3011,7 +3011,7 @@ paths:
             <?php
 
             $request = new HttpRequest();
-            $request->setUrl('https://cleanse.studio/api/v1/lists');
+            $request->setUrl('https://analyzemail.com/api/v1/lists');
             $request->setMethod(HTTP_METH_GET);
 
             $request->setQueryData(array(
@@ -3036,7 +3036,7 @@ paths:
             $client = new http\Client;
             $request = new http\Client\Request;
 
-            $request->setRequestUrl('https://cleanse.studio/api/v1/lists');
+            $request->setRequestUrl('https://analyzemail.com/api/v1/lists');
             $request->setRequestMethod('GET');
             $request->setQuery(new http\QueryString(array(
               'username' => 'SOME_STRING_VALUE'
@@ -3054,7 +3054,7 @@ paths:
           source: |-
             import http.client
 
-            conn = http.client.HTTPSConnection("cleanse.studio")
+            conn = http.client.HTTPSConnection("analyzemail.com")
 
             headers = { 'content-type': "application/json" }
 
@@ -3068,7 +3068,7 @@ paths:
           source: |-
             import requests
 
-            url = "https://cleanse.studio/api/v1/lists"
+            url = "https://analyzemail.com/api/v1/lists"
 
             querystring = {"username":"SOME_STRING_VALUE"}
 
@@ -3082,7 +3082,7 @@ paths:
             require 'uri'
             require 'net/http'
 
-            url = URI("https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE")
+            url = URI("https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -3096,11 +3096,11 @@ paths:
         - lang: Shell_curl
           source: |-
             curl --request GET \
-              --url 'https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE' \
+              --url 'https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE' \
               --header 'content-type: application/json'
         - lang: Shell_httpie
           source: |-
-            http GET 'https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE' \
+            http GET 'https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE' \
               content-type:application/json
         - lang: Shell_wget
           source: |-
@@ -3108,14 +3108,14 @@ paths:
               --method GET \
               --header 'content-type: application/json' \
               --output-document \
-              - 'https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE'
+              - 'https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE'
         - lang: Swift_nsurlsession
           source: |-
             import Foundation
 
             let headers = ["content-type": "application/json"]
 
-            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/lists?username=SOME_STRING_VALUE")!,
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/lists?username=SOME_STRING_VALUE")!,
                                                     cachePolicy: .UseProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.HTTPMethod = "GET"
@@ -3165,7 +3165,7 @@ paths:
             CURL *hnd = curl_easy_init();
 
             curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
-            curl_easy_setopt(hnd, CURLOPT_URL, "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
+            curl_easy_setopt(hnd, CURLOPT_URL, "https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
 
             struct curl_slist *headers = NULL;
             headers = curl_slist_append(headers, "content-type: application/json");
@@ -3174,18 +3174,18 @@ paths:
             CURLcode ret = curl_easy_perform(hnd);
         - lang: Csharp_restsharp
           source: |-
-            var client = new RestClient("https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
+            var client = new RestClient("https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
             var request = new RestRequest(Method.GET);
             request.AddHeader("content-type", "application/json");
             IRestResponse response = client.Execute(request);
         - lang: Go_native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
+          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE\"\n\n\treq, _ := http.NewRequest(\"GET\", url, nil)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
         - lang: Java_okhttp
           source: |-
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
-              .url("https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
+              .url("https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
               .get()
               .addHeader("content-type", "application/json")
               .build();
@@ -3193,7 +3193,7 @@ paths:
             Response response = client.newCall(request).execute();
         - lang: Java_unirest
           source: |-
-            HttpResponse<String> response = Unirest.get("https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
+            HttpResponse<String> response = Unirest.get("https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
               .header("content-type", "application/json")
               .asString();
         - lang: Javascript_jquery
@@ -3201,7 +3201,7 @@ paths:
             var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
+              "url": "https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
               "method": "GET",
               "headers": {
                 "content-type": "application/json"
@@ -3224,7 +3224,7 @@ paths:
               }
             });
 
-            xhr.open("GET", "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
+            xhr.open("GET", "https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE");
             xhr.setRequestHeader("content-type", "application/json");
 
             xhr.send(data);
@@ -3234,7 +3234,7 @@ paths:
 
             var options = {
               "method": "GET",
-              "hostname": "cleanse.studio",
+              "hostname": "analyzemail.com",
               "port": null,
               "path": "/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
               "headers": {
@@ -3261,7 +3261,7 @@ paths:
             var request = require("request");
 
             var options = { method: 'GET',
-              url: 'https://cleanse.studio/api/v1/lists/cleaned',
+              url: 'https://analyzemail.com/api/v1/lists/cleaned',
               qs: { username: 'SOME_STRING_VALUE' },
               headers: { 'content-type': 'application/json' } };
 
@@ -3274,7 +3274,7 @@ paths:
           source: |
             var unirest = require("unirest");
 
-            var req = unirest("GET", "https://cleanse.studio/api/v1/lists/cleaned");
+            var req = unirest("GET", "https://analyzemail.com/api/v1/lists/cleaned");
 
             req.query({
               "username": "SOME_STRING_VALUE"
@@ -3296,7 +3296,7 @@ paths:
 
             NSDictionary *headers = @{ @"content-type": @"application/json" };
 
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE"]
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE"]
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                timeoutInterval:10.0];
             [request setHTTPMethod:@"GET"];
@@ -3319,7 +3319,7 @@ paths:
             open Cohttp
             open Lwt
 
-            let uri = Uri.of_string "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE" in
+            let uri = Uri.of_string "https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE" in
             let headers = Header.add (Header.init ()) "content-type" "application/json" in
 
             Client.call ~headers `GET uri
@@ -3332,7 +3332,7 @@ paths:
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
+              CURLOPT_URL => "https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE",
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
@@ -3359,7 +3359,7 @@ paths:
             <?php
 
             $request = new HttpRequest();
-            $request->setUrl('https://cleanse.studio/api/v1/lists/cleaned');
+            $request->setUrl('https://analyzemail.com/api/v1/lists/cleaned');
             $request->setMethod(HTTP_METH_GET);
 
             $request->setQueryData(array(
@@ -3384,7 +3384,7 @@ paths:
             $client = new http\Client;
             $request = new http\Client\Request;
 
-            $request->setRequestUrl('https://cleanse.studio/api/v1/lists/cleaned');
+            $request->setRequestUrl('https://analyzemail.com/api/v1/lists/cleaned');
             $request->setRequestMethod('GET');
             $request->setQuery(new http\QueryString(array(
               'username' => 'SOME_STRING_VALUE'
@@ -3402,7 +3402,7 @@ paths:
           source: |-
             import http.client
 
-            conn = http.client.HTTPSConnection("cleanse.studio")
+            conn = http.client.HTTPSConnection("analyzemail.com")
 
             headers = { 'content-type': "application/json" }
 
@@ -3416,7 +3416,7 @@ paths:
           source: |-
             import requests
 
-            url = "https://cleanse.studio/api/v1/lists/cleaned"
+            url = "https://analyzemail.com/api/v1/lists/cleaned"
 
             querystring = {"username":"SOME_STRING_VALUE"}
 
@@ -3430,7 +3430,7 @@ paths:
             require 'uri'
             require 'net/http'
 
-            url = URI("https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
+            url = URI("https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -3444,11 +3444,11 @@ paths:
         - lang: Shell_curl
           source: |-
             curl --request GET \
-              --url 'https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE' \
+              --url 'https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE' \
               --header 'content-type: application/json'
         - lang: Shell_httpie
           source: |-
-            http GET 'https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE' \
+            http GET 'https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE' \
               content-type:application/json
         - lang: Shell_wget
           source: |-
@@ -3456,14 +3456,14 @@ paths:
               --method GET \
               --header 'content-type: application/json' \
               --output-document \
-              - 'https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE'
+              - 'https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE'
         - lang: Swift_nsurlsession
           source: |-
             import Foundation
 
             let headers = ["content-type": "application/json"]
 
-            var request = NSMutableURLRequest(URL: NSURL(string: "https://cleanse.studio/api/v1/lists/cleaned?username=SOME_STRING_VALUE")!,
+            var request = NSMutableURLRequest(URL: NSURL(string: "https://analyzemail.com/api/v1/lists/cleaned?username=SOME_STRING_VALUE")!,
                                                     cachePolicy: .UseProtocolCachePolicy,
                                                 timeoutInterval: 10.0)
             request.HTTPMethod = "GET"

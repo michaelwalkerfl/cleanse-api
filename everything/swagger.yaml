@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: '1.0'
-  title: Cleanse API
+  title: Analyze API
   description: |
     ![logo](https://analyzemail.com/static/images/logo.png "analyzemail.com")
 
@@ -3330,11 +3330,11 @@ definitions:
     properties:
       email:
         description: Account Email address
-        example: im@analyzemail.com
+        example: youraccount@analyzemail.com
         type: string
       password:
         description: Account Password
-        example: changethispassword_
+        example: yourpassword
         type: string
     type: object
     required:

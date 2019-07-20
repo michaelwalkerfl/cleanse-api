@@ -21,11 +21,11 @@ definitions:
     properties:
       email:
         description: Account Email address
-        example: im@analyzemail.com
+        example: youraccount@analyzemail.com
         type: string
       password:
         description: Account Password
-        example: changethispassword_
+        example: yourpassword
         type: string
     required:
       - email
@@ -205,7 +205,7 @@ info:
 
 
     ---
-  title: Cleanse API
+  title: Analyze API
   version: '1.0'
 parameters:
   username:

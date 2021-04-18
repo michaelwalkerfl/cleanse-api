@@ -3,7 +3,7 @@ info:
   version: '1.0'
   title: Cleanse API
   description: >
-    ![logo](https://analyzemail.com/static/images/dark-logo.png "analyzemail.com")
+    ![logo](https://staging.analyzemail.com/static/images/analyzemail-v2.png "analyzemail.com")
 
 
     **This collection is intended to help utilize the analyzemail.com API**
